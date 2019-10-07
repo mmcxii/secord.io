@@ -8,7 +8,7 @@ const App: React.FC = () => {
       <header className='App-header'>
         <img src={logo} className='App-logo' alt='logo' />
         <p>
-          <code>testing cypress</code>
+          <code data-testid='canary'>testing everything</code>
         </p>
         <a
           className='App-link'

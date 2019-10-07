@@ -4,8 +4,9 @@ import App from '../App';
 
 describe('<App /> tests', () => {
   it('renders', () => {
-    const wrapper = render(<App />);
+    const { getByTestId, getByText } = render(<App />);
 
-    expect(wrapper.findByText('testing cypress'));
+    expect(getByText('testing everything'));
+    expect(getByTestId('canary'));
   });
 });
