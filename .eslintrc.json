@@ -24,13 +24,16 @@
       "error",
       "prefer-single"
     ],
-    "@typescript-eslint/explicit-function-return-type": 0,
     "no-multiple-empty-lines": [
       "error",
       {
         "max": 1,
         "maxEOF": 0
       }
+    ],
+    "@typescript-eslint/explicit-function-return-type": 0,
+    "@typescript-eslint/semi": [
+      "error"
     ]
   },
   "settings": {
