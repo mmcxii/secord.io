@@ -9,12 +9,14 @@
   "plugins": [
     "react",
     "@typescript-eslint",
-    "prettier"
+    "prettier",
+    "cypress"
   ],
   "env": {
     "browser": true,
     "jasmine": true,
-    "jest": true
+    "jest": true,
+    "cypress/globals": true
   },
   "rules": {
     "prettier/prettier": [
