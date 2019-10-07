@@ -6,7 +6,6 @@ describe('<App /> tests', () => {
   it('renders', () => {
     const { getByTestId, getByText } = render(<App />);
 
-    expect(getByText('testing everything'));
     expect(getByTestId('canary'));
   });
 });
