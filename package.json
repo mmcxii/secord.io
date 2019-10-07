@@ -16,9 +16,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:e2e": "cypress open",
     "eject": "react-scripts eject",
     "netlify:deploy": "netlify deploy --dir=./build -p -m \"$(git log -1 --pretty=%B)\"",
-    "lint:fix": "eslint src/**/*.{ts,tsx} --fix"
+    "lint:fix": "eslint src/**/*.{ts,tsx} cypress/integration/**/*.{ts,tsx} --fix"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -36,10 +37,13 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/react": "^9.3.0",
     "@typescript-eslint/eslint-plugin": "^2.3.3",
     "@typescript-eslint/parser": "^2.3.3",
+    "cypress": "^3.4.1",
     "eslint-config-prettier": "^6.4.0",
     "eslint-config-react": "^1.1.7",
+    "eslint-plugin-cypress": "^2.7.0",
     "eslint-plugin-prettier": "^3.1.1",
     "netlify-cli": "^2.15.0",
     "prettier": "^1.18.2"

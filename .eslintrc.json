@@ -9,12 +9,14 @@
   "plugins": [
     "react",
     "@typescript-eslint",
-    "prettier"
+    "prettier",
+    "cypress"
   ],
   "env": {
     "browser": true,
     "jasmine": true,
-    "jest": true
+    "jest": true,
+    "cypress/globals": true
   },
   "rules": {
     "prettier/prettier": [
@@ -24,14 +26,18 @@
       "error",
       "prefer-single"
     ],
-    "@typescript-eslint/explicit-function-return-type": 0,
     "no-multiple-empty-lines": [
       "error",
       {
         "max": 1,
         "maxEOF": 0
       }
-    ]
+    ],
+    "@typescript-eslint/explicit-function-return-type": 0,
+    "@typescript-eslint/semi": [
+      "error"
+    ],
+    "react/no-unescaped-entities": 0
   },
   "settings": {
     "react": {
