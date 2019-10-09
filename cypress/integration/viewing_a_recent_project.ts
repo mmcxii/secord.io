@@ -1,5 +1,5 @@
 describe('viewing a portfolio item', () => {
-  it('displays six projects from github', () => {
+  it('displays four projects from github', () => {
     cy.visit('http://localhost:3000/portfolio');
 
     // Ensures that four items are displayed
