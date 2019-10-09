@@ -9,7 +9,7 @@ interface Props {
 
 const NavItem: React.FC<Props> = ({ item }) => (
   <li data-testid={`${item.page}-wrapper`}>
-    <Link to={item.page} data-testid={`${item.page}-link`}>
+    <Link to={item.link} data-testid={`${item.page}-link`}>
       <i className={`fas ${item.icon}`} data-testid={`${item.page}-icon`} />
       <span data-testid={`${item.page}-text`}>{item.page}</span>
     </Link>
