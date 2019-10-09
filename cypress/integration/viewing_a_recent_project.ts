@@ -10,6 +10,6 @@ describe('viewing a portfolio item', () => {
     cy.get('[data-testid="recent-project--3__lang-0"]');
 
     // Ensures that a link is preset to the github repo for each project
-    cy.get('[data-testid="recent-project--3__repo-link"]');
+    cy.get('[data-testid="recent-project--3__repo-link"]').should('have.attr', 'href');
   });
 });
