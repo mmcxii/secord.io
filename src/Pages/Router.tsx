@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 
 import { PortfolioProvider } from './Portfolio';
 import { Portfolio, PortfolioDetail } from './Portfolio';
@@ -8,18 +8,16 @@ interface Props {}
 
 const Router: React.FC<Props> = () => {
   return (
-    <BrowserRouter>
-      <Switch>
-        <PortfolioProvider>
-          <Route exact path='/portfolio'>
-            <Portfolio />
-          </Route>
-          <Route exact path='/portfolio/:projectSlug'>
-            <PortfolioDetail />
-          </Route>
-        </PortfolioProvider>
-      </Switch>
-    </BrowserRouter>
+    <Switch>
+      <PortfolioProvider>
+        <Route exact path='/portfolio'>
+          <Portfolio />
+        </Route>
+        <Route exact path='/portfolio/:projectSlug'>
+          <PortfolioDetail />
+        </Route>
+      </PortfolioProvider>
+    </Switch>
   );
 };
 

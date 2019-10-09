@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 
 import { Header } from 'Elements';
 import Router from 'Pages';
@@ -6,8 +7,10 @@ import Router from 'Pages';
 const App: React.FC = () => {
   return (
     <>
-      <Header />
-      <Router />
+      <BrowserRouter>
+        <Header />
+        <Router />
+      </BrowserRouter>
     </>
   );
 };

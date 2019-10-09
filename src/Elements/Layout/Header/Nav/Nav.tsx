@@ -6,7 +6,7 @@ interface Props {}
 
 export interface NavItemProps {
   page: 'about me' | 'portfolio' | 'contact';
-  link: '/about' | '/portfolio' | '/contact';
+  link: '/' | '/portfolio' | '/contact';
   icon: string;
 }
 
@@ -14,7 +14,7 @@ const Nav: React.FC<Props> = () => {
   const navItems: NavItemProps[] = [
     {
       page: 'about me',
-      link: '/about',
+      link: '/',
       icon: 'fa-user-circle',
     },
     {
