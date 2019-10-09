@@ -21,12 +21,12 @@ describe('<ProjectItem /> tests', () => {
     //* Act
     const { getByTestId } = render(<ProjectItem testID={testID} project={testValues} />);
 
-    const itemWrapper = getByTestId('recent-project--123456');
-    const langItem = getByTestId('recent-project--123456__lang-0');
-    const repoLink = getByTestId('recent-project--123456__repo-link');
+    const itemWrapper = getByTestId(`recent-project--${testID}`);
+    const langItem = getByTestId(`recent-project--${testID}__lang-0`);
+    const repoLink = getByTestId(`recent-project--${testID}__repo-link`);
 
     //* Assert
-    expect(itemWrapper).toBeTruthy();
+    expect(itemWrapper);
     expect(getNodeText(langItem)).toBe('Typescript');
     expect(repoLink.getAttribute('href')).toBe(testValues.htmlUrl);
   });
