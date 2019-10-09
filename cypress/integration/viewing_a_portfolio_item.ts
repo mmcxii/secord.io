@@ -19,5 +19,8 @@ describe('viewing a main portfolio item', () => {
       .click({ force: true })
       .url()
       .should('include', '/portfolio/roshambo-the-gathering');
+
+    // Ensures the correct detail page is opened
+    cy.get('[data-testid="project-title"]').should('contain.text', 'roshambo: the gathering');
   });
 });

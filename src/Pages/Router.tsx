@@ -14,7 +14,7 @@ const Router: React.FC<Props> = () => {
           <Route exact path='/portfolio'>
             <Portfolio />
           </Route>
-          <Route exact path='/portfolio/:project'>
+          <Route exact path='/portfolio/:projectSlug'>
             <PortfolioDetail />
           </Route>
         </PortfolioProvider>
