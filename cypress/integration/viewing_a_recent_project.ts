@@ -1,6 +1,9 @@
-describe('viewing a portfolio item', () => {
+describe('viewing a recent project', () => {
   it('displays four projects from github', () => {
-    cy.visit('http://localhost:3000/portfolio');
+    cy.visit('http://localhost:3000/');
+
+    // Clicks the portfolio link in the navbar
+    cy.get('[data-testid="portfolio-link"]').click();
 
     // Ensures that four items are displayed
     cy.get('[data-testid="recent-project--3"]');

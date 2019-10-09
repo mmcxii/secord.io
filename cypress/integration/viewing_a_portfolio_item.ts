@@ -1,6 +1,9 @@
 describe('viewing a main portfolio item', () => {
   it('renders three portfolio items', () => {
-    cy.visit('http://localhost:3000/portfolio');
+    cy.visit('http://localhost:3000');
+
+    // Clicks the portfolio link in the navbar
+    cy.get('[data-testid="portfolio-link"]').click();
 
     // Ensures that four items are displayed
     cy.get('[data-testid="portfolio-item--3"]');
