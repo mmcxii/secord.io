@@ -2,7 +2,7 @@ import React from 'react';
 import { render, getNodeText } from '@testing-library/react';
 
 import ProjectItem from './ProjectItem';
-import { RecentProjectItemProps } from './RecentProjects';
+import { RecentProjectItemProps } from '../RecentProjects';
 
 describe('<ProjectItem /> tests', () => {
   it('is rendering data correctly', () => {

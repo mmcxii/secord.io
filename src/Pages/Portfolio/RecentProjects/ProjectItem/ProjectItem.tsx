@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { RecentProjectItemProps } from './RecentProjects';
+import { RecentProjectItemProps } from '../RecentProjects';
 
 interface Props {
   project: RecentProjectItemProps;
