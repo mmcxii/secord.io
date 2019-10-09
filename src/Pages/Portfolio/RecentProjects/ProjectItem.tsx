@@ -9,9 +9,9 @@ interface Props {
 
 const ProjectItem: React.FC<Props> = ({ project, testID }) => {
   return (
-    <article data-test={`item-${testID}`}>
+    <article data-testid={`item-${testID}`}>
       <h4>{project.name}</h4>
-      <a href={project.htmlUrl} target='blank' data-test={`item-${testID}__repo-link`}>
+      <a href={project.htmlUrl} target='blank' data-testid={`item-${testID}__repo-link`}>
         Github
       </a>
       {project.homepage && (
@@ -25,7 +25,7 @@ const ProjectItem: React.FC<Props> = ({ project, testID }) => {
       {project.description && <p>{project.description}</p>}
       <ol>
         {Object.keys(project.langs).map((lang, index) => (
-          <li key={lang} data-test={`item-${testID}__lang-${index}`}>
+          <li key={lang} data-testid={`item-${testID}__lang-${index}`}>
             {lang}
           </li>
         ))}
