@@ -1,11 +1,12 @@
 import React from 'react';
 
-import Router from './Pages';
+import { Header } from 'Elements';
+import Router from 'Pages';
 
 const App: React.FC = () => {
-
   return (
     <>
+      <Header />
       <Router />
     </>
   );
