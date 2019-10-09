@@ -1,3 +1,4 @@
-import Portfolio from './Porfolio';
+import Portfolio from './Portfolio';
+import PortfolioDetail from './PortfolioDetail';
 
-export default Portfolio;
+export { Portfolio, PortfolioDetail };

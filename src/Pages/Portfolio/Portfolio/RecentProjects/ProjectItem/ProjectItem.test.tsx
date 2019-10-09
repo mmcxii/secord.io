@@ -21,9 +21,9 @@ describe('<ProjectItem /> tests', () => {
     //* Act
     const { getByTestId } = render(<ProjectItem testID={testID} project={testValues} />);
 
-    const itemWrapper = getByTestId('item-123456');
-    const langItem = getByTestId('item-123456__lang-0');
-    const repoLink = getByTestId('item-123456__repo-link');
+    const itemWrapper = getByTestId('recent-project--123456');
+    const langItem = getByTestId('recent-project--123456__lang-0');
+    const repoLink = getByTestId('recent-project--123456__repo-link');
 
     //* Assert
     expect(itemWrapper).toBeTruthy();

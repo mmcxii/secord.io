@@ -1,8 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-import Portfolio from './Portfolio';
-import PortfolioDetail from './PortfolioDetail';
+import { Portfolio, PortfolioDetail } from './Portfolio';
 
 interface Props {}
 

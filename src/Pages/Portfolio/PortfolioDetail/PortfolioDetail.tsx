@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { PortfolioItemProps } from '../Portfolio/MainPortfolioItems';
-
 interface Props {}
 
 const PortfolioDetail: React.FC<Props> = () => {
