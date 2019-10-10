@@ -9,7 +9,7 @@ const MainPortfolioItems: React.FC<Props> = () => {
   const portfolioItems = useContext(portfolioContext);
 
   return (
-    <>
+    <section>
       <h3>Main Portfolio Items</h3>
       <p>In my opinion, these projects stand a cut above the rest as examples of my best work to date.</p>
       <section>
@@ -17,7 +17,7 @@ const MainPortfolioItems: React.FC<Props> = () => {
           <PortfolioItem project={project} key={project.name} testID={index} />
         ))}
       </section>
-    </>
+    </section>
   );
 };
 
