@@ -97,4 +97,10 @@ const GlobalStyles = createGlobalStyle`
       color: inherit;
     }
   }
+
+  ul, ol {
+    > li {
+      list-style: none;
+    }
+  }
 `;

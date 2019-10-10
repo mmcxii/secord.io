@@ -26,7 +26,7 @@ const RecentProjects: React.FC<Props> = () => {
   }, []);
 
   return (
-    <>
+    <section>
       <h3>Recent Projects</h3>
       <p>
         I'm always working on new projects! Here are a few of the most recent projects I've been working on.
@@ -38,7 +38,7 @@ const RecentProjects: React.FC<Props> = () => {
           portfolioItems.map((item, index) => <ProjectItem testID={index} key={item.id} project={item} />)
         )}
       </section>
-    </>
+    </section>
   );
 };
 
