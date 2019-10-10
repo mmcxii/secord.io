@@ -1,14 +1,17 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import { PortfolioProvider } from './Portfolio';
-import { Portfolio, PortfolioDetail } from './Portfolio';
+import About from './About';
+import { Portfolio, PortfolioDetail, PortfolioProvider } from './Portfolio';
 
 interface Props {}
 
 const Router: React.FC<Props> = () => {
   return (
     <Switch>
+      <Route exact path='/'>
+        <About />
+      </Route>
       <PortfolioProvider>
         <Route exact path='/portfolio'>
           <Portfolio />
