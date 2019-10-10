@@ -5,8 +5,6 @@ import Footer from './Footer';
 
 describe('<Footer /> tests', () => {
   it('renders correctly', () => {
-    //* Arrange
-
     //* Act
     const { getByTestId } = render(<Footer />);
 

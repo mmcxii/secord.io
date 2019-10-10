@@ -5,8 +5,6 @@ import SocialMedia from './SocialMedia';
 
 describe('<SocialMedia /> tests', () => {
   it('renders links to each social media', () => {
-    //* Arrange
-
     //* Act
     const { getByTestId } = render(<SocialMedia />);
 
