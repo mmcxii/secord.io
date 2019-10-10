@@ -18,6 +18,7 @@ const PortfolioDetail: React.FC<Props> = () => {
         break;
       }
     }
+    // eslint-disable-next-line
   }, []);
 
   return (

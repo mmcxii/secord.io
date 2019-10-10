@@ -50,6 +50,7 @@ export const useRecentProjects = ({
     };
 
     getProjects();
+    // eslint-disable-next-line
   }, []);
 
   return keepFour;

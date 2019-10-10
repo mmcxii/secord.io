@@ -22,6 +22,7 @@ const RecentProjects: React.FC<Props> = () => {
   const data = useRecentProjects({ setDataIsLoading });
   useEffect(() => {
     setPortfolioItems(data);
+    // eslint-disable-next-line
   }, []);
 
   return (
