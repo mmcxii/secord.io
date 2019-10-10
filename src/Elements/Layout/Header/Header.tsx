@@ -19,4 +19,15 @@ const Header: React.FC<Props> = () => (
 
 export default Header;
 
-const Wrapper = styled(Container).attrs({ as: 'header' })``;
+const Wrapper = styled(Container).attrs({ as: 'header' })`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  @media screen and (min-width: 992px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+`;
