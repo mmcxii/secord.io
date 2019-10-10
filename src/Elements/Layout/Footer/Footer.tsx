@@ -1,15 +1,20 @@
 import React from 'react';
+import styled from 'styled-components';
 
 import SocialMedia from './SocialMedia';
 
 interface Props {}
 
 const Footer: React.FC<Props> = () => (
-  <footer data-testid='footer-wrapper'>
+  <Wrapper data-testid='footer-wrapper'>
     <p data-testid='byline'>Nich Secord &copy; 2019</p>
 
     <SocialMedia />
-  </footer>
+  </Wrapper>
 );
 
 export default Footer;
+
+const Wrapper = styled.footer`
+  margin-top: auto;
+`;
