@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 
 import SocialItem from './SocialItem';
 
@@ -30,12 +31,17 @@ const SocialMedia: React.FC<Props> = () => {
   ];
 
   return (
-    <ul data-testid='social-media'>
+    <SocialList data-testid='social-media'>
       {socials.map(item => (
         <SocialItem item={item} key={item.name} />
       ))}
-    </ul>
+    </SocialList>
   );
 };
 
 export default SocialMedia;
+
+const SocialList = styled.ul`
+  display: flex;
+  justify-content: space-evenly;
+`;
