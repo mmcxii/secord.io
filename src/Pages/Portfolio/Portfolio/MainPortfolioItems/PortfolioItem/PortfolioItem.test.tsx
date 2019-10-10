@@ -8,7 +8,7 @@ import { PortfolioItemProps } from '../MainPortfolioItems';
 describe('<PorftolioItem /> tests', () => {
   it('is rendering data correctly', () => {
     //* Arrange
-    const testID: number = 123456;
+    const testID = 123456;
     const testValues: PortfolioItemProps = {
       name: 'test project',
       slug: 'test-project',

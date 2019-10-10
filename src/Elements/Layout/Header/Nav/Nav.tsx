@@ -5,8 +5,8 @@ import NavItem from './NavItem';
 interface Props {}
 
 export interface NavItemProps {
-  page: 'about me' | 'portfolio' | 'contact';
-  link: '/' | '/portfolio' | '/contact';
+  page: string;
+  link: string;
   icon: string;
 }
 

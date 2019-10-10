@@ -7,7 +7,7 @@ import { RecentProjectItemProps } from '../RecentProjects';
 describe('<ProjectItem /> tests', () => {
   it('is rendering data correctly', () => {
     //* Arrange
-    const testID: number = 123456;
+    const testID = 123456;
     const testValues: RecentProjectItemProps = {
       id: 123456,
       name: 'test project',

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 
-import { portfolioContext } from 'Pages/Portfolio/PortfolioContext';
+import { portfolioContext } from '../../PortfolioContext';
 import PortfolioItem from './PortfolioItem';
 
 interface Props {}

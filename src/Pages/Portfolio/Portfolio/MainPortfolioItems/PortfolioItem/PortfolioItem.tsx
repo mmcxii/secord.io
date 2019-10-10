@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import { PortfolioItemProps } from '../../../PortfolioContext';
 
@@ -31,3 +32,16 @@ const PortfolioItem: React.FC<Props> = ({ project, testID }) => {
 };
 
 export default PortfolioItem;
+
+PortfolioItem.propTypes = {
+  testID: PropTypes.number.isRequired,
+  project: PropTypes.exact({
+    name: PropTypes.string.isRequired,
+    slug: PropTypes.string.isRequired,
+    github: PropTypes.string.isRequired,
+    site: PropTypes.string.isRequired,
+    imgSrc: PropTypes.string.isRequired,
+    techStackIcons: PropTypes.array.isRequired,
+    desc: PropTypes.array.isRequired,
+  }).isRequired,
+};
