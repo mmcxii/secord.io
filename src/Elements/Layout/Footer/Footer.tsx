@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import Container from '../Container';
 import SocialMedia from './SocialMedia';
 
 interface Props {}
@@ -15,6 +16,6 @@ const Footer: React.FC<Props> = () => (
 
 export default Footer;
 
-const Wrapper = styled.footer`
+const Wrapper = styled(Container).attrs({ as: 'footer' })`
   margin-top: auto;
 `;
