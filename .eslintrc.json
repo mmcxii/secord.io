@@ -6,12 +6,7 @@
     "prettier/@typescript-eslint",
     "plugin:prettier/recommended"
   ],
-  "plugins": [
-    "react",
-    "@typescript-eslint",
-    "prettier",
-    "cypress"
-  ],
+  "plugins": ["react", "@typescript-eslint", "prettier", "cypress"],
   "env": {
     "browser": true,
     "jasmine": true,
@@ -19,13 +14,8 @@
     "cypress/globals": true
   },
   "rules": {
-    "prettier/prettier": [
-      0
-    ],
-    "jsx-quotes": [
-      "error",
-      "prefer-single"
-    ],
+    "prettier/prettier": [0],
+    "jsx-quotes": ["error", "prefer-single"],
     "no-multiple-empty-lines": [
       "error",
       {
@@ -34,9 +24,10 @@
       }
     ],
     "@typescript-eslint/explicit-function-return-type": 0,
-    "@typescript-eslint/semi": [
-      "error"
-    ],
+    "@typescript-eslint/no-empty-interface": 0,
+    "@typescript-eslint/ban-ts-ignore": 0,
+    "@typescript-eslint/no-explicit-any": 0,
+    "@typescript-eslint/semi": ["error"],
     "react/no-unescaped-entities": 0
   },
   "settings": {
