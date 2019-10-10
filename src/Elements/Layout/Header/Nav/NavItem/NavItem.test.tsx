@@ -29,7 +29,7 @@ describe('<NavItem /> tests', () => {
 
     expect(itemWrapper);
     expect(itemLink.getAttribute('href')).toBe(testValues.link);
-    expect(itemIcon.getAttribute('class')).toBe(`fas ${testValues.icon}`);
+    expect(itemIcon.getAttribute('class')).toContain(`fas ${testValues.icon}`);
     expect(itemText.textContent.toLowerCase()).toBe(testValues.page);
   });
 });
