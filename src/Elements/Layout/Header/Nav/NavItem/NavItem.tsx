@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link as L } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -12,7 +12,7 @@ interface Props {
 
 const NavItem: React.FC<Props> = ({ item: { page, link, icon } }) => (
   <Wrapper data-testid={`${page}-wrapper`}>
-    <Link to={link} data-testid={`${page}-link`}>
+    <Link exact to={link} data-testid={`${page}-link`}>
       <Icon className={`fas ${icon}`} data-testid={`${page}-icon`} />
       <Label data-testid={`${page}-text`}>{page}</Label>
     </Link>
@@ -43,7 +43,16 @@ const Wrapper = styled.li`
   }
 `;
 
-const Link = styled(L)`
+const Icon = styled.i`
+  display: none;
+
+  @media screen and (min-width: 576px) {
+    display: inline;
+  }
+`;
+
+const Label = styled.span`
+  display: inline-block;
   position: relative;
 
   &::after {
@@ -64,20 +73,18 @@ const Link = styled(L)`
       transform: scale(1);
     }
   }
-`;
-
-const Icon = styled.i`
-  display: none;
-
-  @media screen and (min-width: 576px) {
-    display: inline;
-  }
-`;
-
-const Label = styled.span`
-  display: inline-block;
 
   @media screen and (min-width: 576px) {
     margin-left: ${spacing.sm};
+  }
+`;
+
+const Link = styled(NavLink)`
+  &.active {
+    ${Label} {
+      &::after {
+        transform: scale(1);
+      }
+    }
   }
 `;
