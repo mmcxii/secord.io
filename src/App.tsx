@@ -30,7 +30,7 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  body, html #root {
+  body, html, #root {
     min-height: 100vh;
   }
 
