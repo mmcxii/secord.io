@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 import { PortfolioItemProps } from '../../../PortfolioContext';
+import { spacing } from 'Utilities';
+import { Card as C } from 'Elements';
 
 interface Props {
   project: PortfolioItemProps;
@@ -11,7 +14,7 @@ interface Props {
 
 const PortfolioItem: React.FC<Props> = ({ project, testID }) => {
   return (
-    <article data-testid={`portfolio-item--${testID}`}>
+    <Card data-testid={`portfolio-item--${testID}`}>
       <h4>
         <a href={project.site} target='blank' data-testid={`portfolio-item--${testID}__site-link`}>
           {project.name}
@@ -21,17 +24,25 @@ const PortfolioItem: React.FC<Props> = ({ project, testID }) => {
         {project.name} github
       </a>
       <Link to={`/portfolio/${project.slug}`} data-testid={`portfolio-item--${testID}__detail-link`}>
-        <img
+        <Screenshot
           src={project.imgSrc}
           data-testid={`portfolio-item--${testID}__screenshot`}
           alt={`a screenshot of ${project.name}`}
         />
       </Link>
-    </article>
+    </Card>
   );
 };
 
 export default PortfolioItem;
+
+const Card = styled(C).attrs({ as: 'article' })`
+  margin: ${spacing.md} 0;
+`;
+
+const Screenshot = styled.img`
+  width: 100%;
+`;
 
 PortfolioItem.propTypes = {
   testID: PropTypes.number.isRequired,

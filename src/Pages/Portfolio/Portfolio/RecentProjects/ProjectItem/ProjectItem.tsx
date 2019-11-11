@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 import { RecentProjectItemProps } from '../RecentProjects';
 import { Card } from 'Elements';
+import UpdatedAt from './UpdatedAt';
 
 interface Props {
   project: RecentProjectItemProps;
@@ -12,18 +13,22 @@ interface Props {
 
 const ProjectItem: React.FC<Props> = ({ project, testID }) => (
   <Wrapper data-testid={`recent-project--${testID}`}>
-    <h4>{project.name}</h4>
+    <h4>
+      {project.homepage ? (
+        <a href={project.homepage} target='blank'>
+          {project.name}
+        </a>
+      ) : (
+        <>{project.name}</>
+      )}
+    </h4>
+
     <a href={project.htmlUrl} target='blank' data-testid={`recent-project--${testID}__repo-link`}>
-      Github
+      <i className='fab fa-github' />
     </a>
-    {project.homepage && (
-      <a href={project.homepage} target='blank'>
-        {project.homepage}
-      </a>
-    )}
-    <p>
-      <small>{project.updatedAt}</small>
-    </p>
+
+    <UpdatedAt updatedAt={project.updatedAt} />
+
     {project.description && <p>{project.description}</p>}
     <ol>
       {Object.keys(project.langs).map((lang, index) => (
@@ -37,6 +42,10 @@ const ProjectItem: React.FC<Props> = ({ project, testID }) => (
 
 export default ProjectItem;
 
+const Wrapper = styled(Card).attrs({ as: 'article' })`
+  max-width: 100%;
+`;
+
 ProjectItem.propTypes = {
   testID: PropTypes.number.isRequired,
   project: PropTypes.shape({
@@ -49,5 +58,3 @@ ProjectItem.propTypes = {
     langs: PropTypes.object.isRequired,
   }).isRequired,
 };
-
-const Wrapper = styled(Card).attrs({ as: 'article' })``;
