@@ -17,6 +17,7 @@ describe('<PorftolioItem /> tests', () => {
       imgSrc: 'placeholder',
       techStackIcons: ['placeholder', 'values'],
       desc: ['placeholder', 'values'],
+      overview: 'lorem ipsum',
     };
 
     //* Act

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { NavItemProps } from '../Nav';
-import { spacing, white } from 'Utilities';
+import { spacing, white, blue, transition } from 'Utilities';
 
 interface Props {
   item: NavItemProps;
@@ -12,10 +12,17 @@ interface Props {
 
 const NavItem: React.FC<Props> = ({ item: { page, link, icon } }) => (
   <Wrapper data-testid={`${page}-wrapper`}>
-    <Link exact to={link} data-testid={`${page}-link`}>
-      <Icon className={`fas ${icon}`} data-testid={`${page}-icon`} />
-      <Label data-testid={`${page}-text`}>{page}</Label>
-    </Link>
+    {link === '/' ? (
+      <Link exact to={link} data-testid={`${page}-link`}>
+        <Icon className={`fas ${icon}`} data-testid={`${page}-icon`} />
+        <Label data-testid={`${page}-text`}>{page}</Label>
+      </Link>
+    ) : (
+      <Link to={link} data-testid={`${page}-link`}>
+        <Icon className={`fas ${icon}`} data-testid={`${page}-icon`} />
+        <Label data-testid={`${page}-text`}>{page}</Label>
+      </Link>
+    )}
   </Wrapper>
 );
 
@@ -58,19 +65,22 @@ const Label = styled.span`
   &::after {
     transform-origin: center;
     content: '';
-    width: 100%;
-    height: 2px;
+    width: 5px;
+    height: 5px;
+    border-radius: 5px;
     background-color: ${white};
     position: absolute;
-    bottom: -2px;
-    left: 0;
+    bottom: -5px;
+    left: 50%;
     transition: all ease-in-out 200ms;
-    transform: scaleX(0);
+    transform: translateX(-50%);
+    opacity: 0;
+    ${transition({ prop: 'opacity' })};
   }
 
   &:hover {
     &::after {
-      transform: scale(1);
+      opacity: 1;
     }
   }
 
@@ -81,9 +91,14 @@ const Label = styled.span`
 
 const Link = styled(NavLink)`
   &.active {
+    color: ${blue};
+    ${Icon} {
+    }
+
     ${Label} {
       &::after {
-        transform: scale(1);
+        opacity: 1;
+        background-color: ${blue};
       }
     }
   }

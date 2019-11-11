@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 import { PortfolioItemProps } from '../../../PortfolioContext';
+import { spacing, roundedInner, transition, blue } from 'Utilities';
+import { Card as C } from 'Elements';
 
 interface Props {
   project: PortfolioItemProps;
@@ -11,27 +14,83 @@ interface Props {
 
 const PortfolioItem: React.FC<Props> = ({ project, testID }) => {
   return (
-    <article data-testid={`portfolio-item--${testID}`}>
-      <h4>
+    <Card data-testid={`portfolio-item--${testID}`}>
+      <Title>
         <a href={project.site} target='blank' data-testid={`portfolio-item--${testID}__site-link`}>
           {project.name}
         </a>
-      </h4>
-      <a href={project.github} target='blank' data-testid={`portfolio-item--${testID}__repo-link`}>
-        {project.name} github
-      </a>
-      <Link to={`/portfolio/${project.slug}`} data-testid={`portfolio-item--${testID}__detail-link`}>
-        <img
+      </Title>
+
+      <GithubLink href={project.github} target='blank' data-testid={`portfolio-item--${testID}__repo-link`}>
+        <i className='fab fa-github' />
+      </GithubLink>
+
+      <Overview>{project.overview}</Overview>
+
+      <ScreenshotWrapper
+        to={`/portfolio/${project.slug}`}
+        data-testid={`portfolio-item--${testID}__detail-link`}
+      >
+        <Screenshot
           src={project.imgSrc}
           data-testid={`portfolio-item--${testID}__screenshot`}
           alt={`a screenshot of ${project.name}`}
         />
-      </Link>
-    </article>
+      </ScreenshotWrapper>
+    </Card>
   );
 };
 
 export default PortfolioItem;
+
+const Card = styled(C).attrs({ as: 'article' })`
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  grid-template-rows: repeat(3, max-content);
+  grid-template-areas:
+    'title github'
+    'screenshot screenshot'
+    'overview overview';
+  grid-gap: ${spacing.md};
+`;
+
+const Title = styled.h3`
+  grid-area: title;
+
+  font-size: 1.4rem;
+`;
+
+const GithubLink = styled.a`
+  grid-area: github;
+
+  font-size: 1.5rem;
+  justify-self: flex-end;
+  ${transition({ prop: 'color' })};
+
+  &:hover {
+    color: ${blue};
+  }
+`;
+
+const Overview = styled.p`
+  grid-area: overview;
+`;
+
+const ScreenshotWrapper = styled(Link)`
+  grid-area: screenshot;
+
+  margin: 0 auto;
+`;
+
+const Screenshot = styled.img`
+  width: 100%;
+  border-radius: ${roundedInner};
+
+  @media screen and (min-width: 992px) {
+    max-height: 500px;
+    max-width: 500px;
+  }
+`;
 
 PortfolioItem.propTypes = {
   testID: PropTypes.number.isRequired,
@@ -43,5 +102,6 @@ PortfolioItem.propTypes = {
     imgSrc: PropTypes.string.isRequired,
     techStackIcons: PropTypes.array.isRequired,
     desc: PropTypes.array.isRequired,
+    overview: PropTypes.string.isRequired,
   }).isRequired,
 };

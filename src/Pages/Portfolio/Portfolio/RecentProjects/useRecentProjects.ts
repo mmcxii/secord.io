@@ -9,7 +9,7 @@ interface ResponseProps {
   languages_url: string;
   updated_at: string;
   homepage?: string;
-  description?: string;
+  description: string;
 }
 
 export const useRecentProjects = ({
@@ -26,7 +26,9 @@ export const useRecentProjects = ({
         const response: Response = await fetch('https://api.github.com/users/mmcxii/repos');
         const data: ResponseProps[] = await response.json();
 
-        const recentFour = data.sort((a, b) => b.id - a.id).slice(0, 4);
+        const recentFour = data
+          .sort((a, b) => Date.parse(b.updated_at) - Date.parse(a.updated_at))
+          .slice(0, 4);
 
         for (let i = 0; i < recentFour.length; i++) {
           const response: Response = await fetch(recentFour[i].languages_url);
