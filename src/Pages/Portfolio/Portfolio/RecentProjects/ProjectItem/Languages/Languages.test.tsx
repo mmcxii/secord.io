@@ -6,7 +6,7 @@ import Languages from './Languages';
 describe('<Languages /> tests', () => {
   it('renders data correctly', () => {
     //* Arrange
-    const testID: number = 1234;
+    const testID = 1234;
     const testValues: {} = {
       TypeScript: 5000,
       JavaScript: 7373,

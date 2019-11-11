@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 interface Props {
   updatedAt: string;
@@ -22,3 +23,8 @@ export default UpdatedAt;
 const Wrapper = styled.small`
   grid-area: updatedAt;
 `;
+
+UpdatedAt.propTypes = {
+  updatedAt: PropTypes.string.isRequired,
+  testID: PropTypes.number.isRequired,
+};

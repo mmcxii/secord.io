@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 import { spacing } from 'Utilities';
 
@@ -37,3 +38,8 @@ const Item = styled.li`
 const Language = styled.span`
   font-weight: bolder;
 `;
+
+Languages.propTypes = {
+  langs: PropTypes.object.isRequired,
+  testID: PropTypes.number.isRequired,
+};

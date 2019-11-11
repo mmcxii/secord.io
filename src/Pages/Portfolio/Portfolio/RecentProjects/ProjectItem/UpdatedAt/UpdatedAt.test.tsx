@@ -6,8 +6,8 @@ import UpdatedAt from './UpdatedAt';
 describe('<UpdatedAt /> tests', () => {
   it('formats datestrings correctly', () => {
     //* Arrange
-    const testID: number = 1234;
-    const testValue: string = '2019-11-08T02:38:52Z';
+    const testID = 1234;
+    const testValue = '2019-11-08T02:38:52Z';
 
     //* Act
     const { getByTestId } = render(<UpdatedAt updatedAt={testValue} testID={testID} />);
