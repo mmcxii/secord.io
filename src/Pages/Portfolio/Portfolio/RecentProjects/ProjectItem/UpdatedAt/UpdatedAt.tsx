@@ -2,9 +2,10 @@ import React from 'react';
 
 interface Props {
   updatedAt: string;
+  testID: number;
 }
 
-const UpdatedAt: React.FC<Props> = ({ updatedAt }) => {
+const UpdatedAt: React.FC<Props> = ({ updatedAt, testID }) => {
   const formattedDate = new Date(updatedAt).toLocaleString('en-us', {
     weekday: 'long',
     year: 'numeric',
@@ -12,7 +13,7 @@ const UpdatedAt: React.FC<Props> = ({ updatedAt }) => {
     day: 'numeric',
   });
 
-  return <small data-testid='updated-at'>Last Updated: {formattedDate}</small>;
+  return <small data-testid={`updated-at--${testID}`}>Last Updated: {formattedDate}</small>;
 };
 
 export default UpdatedAt;

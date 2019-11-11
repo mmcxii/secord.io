@@ -27,7 +27,7 @@ const ProjectItem: React.FC<Props> = ({ project, testID }) => (
       <i className='fab fa-github' />
     </a>
 
-    <UpdatedAt updatedAt={project.updatedAt} />
+    <UpdatedAt updatedAt={project.updatedAt} testID={testID} />
 
     {project.description && <p>{project.description}</p>}
     <ol>
