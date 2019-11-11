@@ -35,4 +35,5 @@ const Wrapper = styled(Container).attrs({ as: 'header' })`
 
 const Logo = styled.h1`
   margin: 0;
+  font-size: 2.5rem;
 `;

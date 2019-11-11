@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
 
 import { useRecentProjects } from './useRecentProjects';
 import ProjectItem from './ProjectItem';
+import { spacing } from 'Utilities';
 
 interface Props {}
 
@@ -31,15 +33,26 @@ const RecentProjects: React.FC<Props> = () => {
       <p>
         I'm always working on new projects! Here are a few of the most recent projects I've been working on.
       </p>
-      <section>
+      <ProjectsWrapper>
         {dataIsLoading ? (
           <p>loading...</p>
         ) : (
           portfolioItems.map((item, index) => <ProjectItem testID={index} key={item.id} project={item} />)
         )}
-      </section>
+      </ProjectsWrapper>
     </section>
   );
 };
 
 export default RecentProjects;
+
+const ProjectsWrapper = styled.section`
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  grid-gap: ${spacing.md};
+
+  @media screen and (min-width: 768px) {
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+  }
+`;

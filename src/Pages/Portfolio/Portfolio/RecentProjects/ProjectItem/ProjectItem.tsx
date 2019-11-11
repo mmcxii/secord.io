@@ -1,7 +1,9 @@
 import React from 'react';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 import { RecentProjectItemProps } from '../RecentProjects';
+import { Card } from 'Elements';
 
 interface Props {
   project: RecentProjectItemProps;
@@ -9,7 +11,7 @@ interface Props {
 }
 
 const ProjectItem: React.FC<Props> = ({ project, testID }) => (
-  <article data-testid={`recent-project--${testID}`}>
+  <Wrapper data-testid={`recent-project--${testID}`}>
     <h4>{project.name}</h4>
     <a href={project.htmlUrl} target='blank' data-testid={`recent-project--${testID}__repo-link`}>
       Github
@@ -30,7 +32,7 @@ const ProjectItem: React.FC<Props> = ({ project, testID }) => (
         </li>
       ))}
     </ol>
-  </article>
+  </Wrapper>
 );
 
 export default ProjectItem;
@@ -47,3 +49,5 @@ ProjectItem.propTypes = {
     langs: PropTypes.object.isRequired,
   }).isRequired,
 };
+
+const Wrapper = styled(Card).attrs({ as: 'article' })``;
