@@ -1,38 +1,44 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 
+import { useJumpToTop } from 'Hooks';
 import { Container } from 'Elements';
-
 import About from './About';
 import Contact from './Contact';
 import { Portfolio, PortfolioDetail, PortfolioProvider } from './Portfolio';
 
 interface Props {}
 
-const Router: React.FC<Props> = () => (
-  <Page>
-    <Switch>
-      <Route exact path='/'>
-        <About />
-      </Route>
+const Router: React.FC<Props> = () => {
+  // Wenever the page changes, jump to the top of the document
+  const params = useParams();
+  useJumpToTop(params);
 
-      <Route exact path='/contact'>
-        <Contact />
-      </Route>
-
-      <PortfolioProvider>
-        <Route exact path='/portfolio'>
-          <Portfolio />
+  return (
+    <Page>
+      <Switch>
+        <Route exact path='/'>
+          <About />
         </Route>
 
-        <Route exact path='/portfolio/:projectSlug'>
-          <PortfolioDetail />
+        <Route exact path='/contact'>
+          <Contact />
         </Route>
-      </PortfolioProvider>
-    </Switch>
-  </Page>
-);
+
+        <PortfolioProvider>
+          <Route exact path='/portfolio'>
+            <Portfolio />
+          </Route>
+
+          <Route exact path='/portfolio/:projectSlug'>
+            <PortfolioDetail />
+          </Route>
+        </PortfolioProvider>
+      </Switch>
+    </Page>
+  );
+};
 
 export default Router;
 
