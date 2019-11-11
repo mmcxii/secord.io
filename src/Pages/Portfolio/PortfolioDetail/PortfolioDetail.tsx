@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { portfolioContext, PortfolioItemProps } from '../PortfolioContext';
-import { spacing, roundedInner, blue } from 'Utilities';
+import { spacing, roundedInner, blue, transition } from 'Utilities';
 import { Card } from 'Elements';
 
 interface Props {}
@@ -81,6 +81,7 @@ const GithubLink = styled.a`
 
   font-size: 1.5rem;
   padding: ${spacing.sm};
+  ${transition({ prop: 'color' })}
 
   &:hover {
     color: ${blue};
