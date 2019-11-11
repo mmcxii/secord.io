@@ -51,10 +51,10 @@ const Wrapper = styled(Card).attrs({ as: 'article' })`
   grid-gap: ${spacing.sm};
 `;
 
-const Title = styled.h4`
+const Title = styled.h3`
   grid-area: title;
 
-  font-size: 1.5rem;
+  font-size: 1.4rem;
 `;
 
 const GithubLink = styled.a`

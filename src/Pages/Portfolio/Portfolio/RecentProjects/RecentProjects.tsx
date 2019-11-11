@@ -29,7 +29,7 @@ const RecentProjects: React.FC<Props> = () => {
 
   return (
     <Wrapper>
-      <h3>Recent Projects</h3>
+      <h2>Recent Projects</h2>
       <p>
         In my spare time I love working on new side projects and refining existing ones! Here is what I've
         been up to lately.
