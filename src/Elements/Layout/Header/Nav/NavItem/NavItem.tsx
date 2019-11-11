@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { NavItemProps } from '../Nav';
-import { spacing, white } from 'Utilities';
+import { spacing, white, blue } from 'Utilities';
 
 interface Props {
   item: NavItemProps;
@@ -12,10 +12,17 @@ interface Props {
 
 const NavItem: React.FC<Props> = ({ item: { page, link, icon } }) => (
   <Wrapper data-testid={`${page}-wrapper`}>
-    <Link exact to={link} data-testid={`${page}-link`}>
-      <Icon className={`fas ${icon}`} data-testid={`${page}-icon`} />
-      <Label data-testid={`${page}-text`}>{page}</Label>
-    </Link>
+    {link === '/' ? (
+      <Link exact to={link} data-testid={`${page}-link`}>
+        <Icon className={`fas ${icon}`} data-testid={`${page}-icon`} />
+        <Label data-testid={`${page}-text`}>{page}</Label>
+      </Link>
+    ) : (
+      <Link to={link} data-testid={`${page}-link`}>
+        <Icon className={`fas ${icon}`} data-testid={`${page}-icon`} />
+        <Label data-testid={`${page}-text`}>{page}</Label>
+      </Link>
+    )}
   </Wrapper>
 );
 
@@ -81,9 +88,14 @@ const Label = styled.span`
 
 const Link = styled(NavLink)`
   &.active {
+    color: ${blue};
+    ${Icon} {
+    }
+
     ${Label} {
       &::after {
         transform: scale(1);
+        background-color: ${blue};
       }
     }
   }
