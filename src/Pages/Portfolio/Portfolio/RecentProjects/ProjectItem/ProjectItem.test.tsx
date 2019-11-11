@@ -27,7 +27,7 @@ describe('<ProjectItem /> tests', () => {
 
     //* Assert
     expect(itemWrapper);
-    expect(getNodeText(langItem)).toBe('Typescript');
+    expect(getNodeText(langItem)).toBe('Typescript: 3000');
     expect(repoLink.getAttribute('href')).toBe(testValues.htmlUrl);
   });
 });

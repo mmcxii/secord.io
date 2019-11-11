@@ -6,6 +6,7 @@ import { RecentProjectItemProps } from '../RecentProjects';
 import { spacing, transition, blue } from 'Utilities';
 import { Card } from 'Elements';
 import UpdatedAt from './UpdatedAt';
+import Languages from './Languages';
 
 interface Props {
   project: RecentProjectItemProps;
@@ -32,13 +33,7 @@ const ProjectItem: React.FC<Props> = ({ project, testID }) => (
 
     <Description>{project.description}</Description>
 
-    <Languages>
-      {Object.keys(project.langs).map((lang, index) => (
-        <li key={lang} data-testid={`recent-project--${testID}__lang-${index}`}>
-          {lang}
-        </li>
-      ))}
-    </Languages>
+    <Languages langs={project.langs} testID={testID} />
   </Wrapper>
 );
 
@@ -71,10 +66,6 @@ const GithubLink = styled.a`
 
 const Description = styled.p`
   grid-area: desc;
-`;
-
-const Languages = styled.ol`
-  grid-area: langs;
 `;
 
 ProjectItem.propTypes = {
