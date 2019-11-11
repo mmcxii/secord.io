@@ -16,9 +16,9 @@ describe('<Languages /> tests', () => {
     //* Act
     const { getByTestId } = render(<Languages langs={testValues} testID={testID} />);
 
-    const lastLang = getByTestId(`recent-project--${testID}__lang-2`);
+    const lastLang = getByTestId(`recent-project--${testID}__lang-2--percentage`);
 
     //* Assert
-    expect(getNodeText(lastLang)).toBe('HTML: 33');
+    expect(getNodeText(lastLang)).toBe('0.3%');
   });
 });

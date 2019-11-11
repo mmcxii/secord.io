@@ -18,7 +18,10 @@ const Languages: React.FC<Props> = ({ langs, testID }) => {
     <Wrapper>
       {keys.map((lang, index) => (
         <Item key={lang} data-testid={`recent-project--${testID}__lang-${index}`}>
-          <Language>{lang}</Language>: {((values[index] / totalLines) * 100).toFixed(1)}%
+          <Language data-testid={`recent-project--${testID}__lang-${index}--lang`}>{lang}</Language>:{' '}
+          <span data-testid={`recent-project--${testID}__lang-${index}--percentage`}>
+            {((values[index] / totalLines) * 100).toFixed(1)}%
+          </span>
         </Item>
       ))}
     </Wrapper>

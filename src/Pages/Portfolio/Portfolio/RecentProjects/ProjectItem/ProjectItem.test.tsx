@@ -22,12 +22,14 @@ describe('<ProjectItem /> tests', () => {
     const { getByTestId } = render(<ProjectItem testID={testID} project={testValues} />);
 
     const itemWrapper = getByTestId(`recent-project--${testID}`);
-    const langItem = getByTestId(`recent-project--${testID}__lang-0`);
+    const langItemLanguage = getByTestId(`recent-project--${testID}__lang-0--lang`);
+    const langItemPercentage = getByTestId(`recent-project--${testID}__lang-0--percentage`);
     const repoLink = getByTestId(`recent-project--${testID}__repo-link`);
 
     //* Assert
     expect(itemWrapper);
-    expect(getNodeText(langItem)).toBe('Typescript: 3000');
+    expect(getNodeText(langItemLanguage)).toBe('Typescript');
+    expect(getNodeText(langItemPercentage)).toBe('95.2%');
     expect(repoLink.getAttribute('href')).toBe(testValues.htmlUrl);
   });
 });
