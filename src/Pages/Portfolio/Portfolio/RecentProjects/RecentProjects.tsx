@@ -31,7 +31,8 @@ const RecentProjects: React.FC<Props> = () => {
     <Wrapper>
       <h3>Recent Projects</h3>
       <p>
-        I'm always working on new projects! Here are a few of the most recent projects I've been working on.
+        In my spare time I love working on new side projects and refining existing ones! Here is what I've
+        been up to lately.
       </p>
       <ProjectsWrapper>
         {dataIsLoading ? (

@@ -53,10 +53,14 @@ const Wrapper = styled(Card).attrs({ as: 'article' })`
 
 const Title = styled.h4`
   grid-area: title;
+
+  font-size: 1.5rem;
 `;
 
 const GithubLink = styled.a`
   grid-area: github;
+
+  font-size: 1.5rem;
   ${transition({ prop: 'color' })};
 
   &:hover {
