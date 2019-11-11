@@ -1,15 +1,16 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { portfolioContext, PortfolioItemProps } from '../PortfolioContext';
 import { spacing, roundedInner, blue, transition } from 'Utilities';
-import { Card } from 'Elements';
+import { Button, Card } from 'Elements';
 
 interface Props {}
 
 const PortfolioDetail: React.FC<Props> = () => {
   const { projectSlug } = useParams();
+  const { goBack } = useHistory();
   const projects = useContext(portfolioContext);
 
   const [project, setProject] = useState<PortfolioItemProps | null>(null);
@@ -24,9 +25,10 @@ const PortfolioDetail: React.FC<Props> = () => {
   }, [projects, projectSlug]);
 
   return (
-    <>
+    <Wrapper>
+      <GoBackButton onClick={goBack}>Return to Portfolio</GoBackButton>
       {project && (
-        <Wrapper>
+        <ProjectInfo>
           <Title data-testid='project-title'>
             <a href={project.site} data-testid='project-site-link'>
               {project.name}
@@ -54,22 +56,45 @@ const PortfolioDetail: React.FC<Props> = () => {
             data-testid='project-screenshot'
             alt={`A screenshot of ${project.name}`}
           />
-        </Wrapper>
+        </ProjectInfo>
       )}
-    </>
+    </Wrapper>
   );
 };
 
 export default PortfolioDetail;
 
-const Wrapper = styled(Card).attrs({ as: 'section' })`
+const Wrapper = styled.section`
+  display: flex;
+  flex-direction: column;
+`;
+
+const GoBackButton = styled(Button)`
+  margin: ${spacing.lg} 0;
+
+  @media screen and (min-width: 768px) {
+    align-self: flex-end;
+  }
+`;
+
+const ProjectInfo = styled(Card).attrs({ as: 'section' })`
   display: grid;
-  grid-template-rows: max-content 1fr;
-  grid-template-columns: 1fr 1fr max-content;
+
+  grid-template-rows: max-content max-content 1fr;
+  grid-template-columns: 1fr max-content;
   grid-template-areas:
-    'title title github'
-    'screenshot description description';
+    'title github'
+    'screenshot screenshot'
+    'description description';
   grid-gap: ${spacing.lg};
+
+  @media screen and (min-width: 992px) {
+    grid-template-rows: max-content 1fr;
+    grid-template-columns: 1fr 1fr max-content;
+    grid-template-areas:
+      'title title github'
+      'screenshot description description';
+  }
 `;
 
 const Title = styled.h2`
