@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 import { RecentProjectItemProps } from '../RecentProjects';
+import { spacing, transition, blue } from 'Utilities';
 import { Card } from 'Elements';
 import UpdatedAt from './UpdatedAt';
 
@@ -13,7 +14,7 @@ interface Props {
 
 const ProjectItem: React.FC<Props> = ({ project, testID }) => (
   <Wrapper data-testid={`recent-project--${testID}`}>
-    <h4>
+    <Title>
       {project.homepage ? (
         <a href={project.homepage} target='blank'>
           {project.name}
@@ -21,29 +22,59 @@ const ProjectItem: React.FC<Props> = ({ project, testID }) => (
       ) : (
         <>{project.name}</>
       )}
-    </h4>
+    </Title>
 
-    <a href={project.htmlUrl} target='blank' data-testid={`recent-project--${testID}__repo-link`}>
+    <GithubLink href={project.htmlUrl} target='blank' data-testid={`recent-project--${testID}__repo-link`}>
       <i className='fab fa-github' />
-    </a>
+    </GithubLink>
 
     <UpdatedAt updatedAt={project.updatedAt} testID={testID} />
 
-    {project.description && <p>{project.description}</p>}
-    <ol>
+    <Description>{project.description}</Description>
+
+    <Languages>
       {Object.keys(project.langs).map((lang, index) => (
         <li key={lang} data-testid={`recent-project--${testID}__lang-${index}`}>
           {lang}
         </li>
       ))}
-    </ol>
+    </Languages>
   </Wrapper>
 );
 
 export default ProjectItem;
 
 const Wrapper = styled(Card).attrs({ as: 'article' })`
-  max-width: 100%;
+  display: grid;
+  grid-template-rows: repeat(3, max-content) 1fr;
+  grid-template-columns: 1fr max-content;
+  grid-template-areas:
+    'title github'
+    'updatedAt updatedAt'
+    'desc desc'
+    'langs langs';
+  grid-gap: ${spacing.sm};
+`;
+
+const Title = styled.h4`
+  grid-area: title;
+`;
+
+const GithubLink = styled.a`
+  grid-area: github;
+  ${transition({ prop: 'color' })};
+
+  &:hover {
+    color: ${blue};
+  }
+`;
+
+const Description = styled.p`
+  grid-area: desc;
+`;
+
+const Languages = styled.ol`
+  grid-area: langs;
 `;
 
 ProjectItem.propTypes = {
@@ -54,7 +85,7 @@ ProjectItem.propTypes = {
     htmlUrl: PropTypes.string.isRequired,
     updatedAt: PropTypes.string.isRequired,
     homepage: PropTypes.string,
-    description: PropTypes.string,
+    description: PropTypes.string.isRequired,
     langs: PropTypes.object.isRequired,
   }).isRequired,
 };

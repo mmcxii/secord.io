@@ -9,7 +9,7 @@ interface ResponseProps {
   languages_url: string;
   updated_at: string;
   homepage?: string;
-  description?: string;
+  description: string;
 }
 
 export const useRecentProjects = ({

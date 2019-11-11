@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 
 interface Props {
   updatedAt: string;
@@ -13,7 +14,11 @@ const UpdatedAt: React.FC<Props> = ({ updatedAt, testID }) => {
     day: 'numeric',
   });
 
-  return <small data-testid={`updated-at--${testID}`}>Last Updated: {formattedDate}</small>;
+  return <Wrapper data-testid={`updated-at--${testID}`}>Last Updated: {formattedDate}</Wrapper>;
 };
 
 export default UpdatedAt;
+
+const Wrapper = styled.small`
+  grid-area: updatedAt;
+`;
