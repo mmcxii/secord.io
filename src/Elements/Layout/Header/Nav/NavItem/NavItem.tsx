@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { NavItemProps } from '../Nav';
-import { spacing, white, blue } from 'Utilities';
+import { spacing, white, blue, transition } from 'Utilities';
 
 interface Props {
   item: NavItemProps;
@@ -65,19 +65,22 @@ const Label = styled.span`
   &::after {
     transform-origin: center;
     content: '';
-    width: 100%;
-    height: 2px;
+    width: 5px;
+    height: 5px;
+    border-radius: 5px;
     background-color: ${white};
     position: absolute;
-    bottom: -2px;
-    left: 0;
+    bottom: -5px;
+    left: 50%;
     transition: all ease-in-out 200ms;
-    transform: scaleX(0);
+    transform: translateX(-50%);
+    opacity: 0;
+    ${transition({ prop: 'opacity' })};
   }
 
   &:hover {
     &::after {
-      transform: scale(1);
+      opacity: 1;
     }
   }
 
@@ -94,7 +97,7 @@ const Link = styled(NavLink)`
 
     ${Label} {
       &::after {
-        transform: scale(1);
+        opacity: 1;
         background-color: ${blue};
       }
     }
