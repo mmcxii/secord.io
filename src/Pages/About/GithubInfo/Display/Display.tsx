@@ -20,6 +20,7 @@ interface Props {
 
 const Display: React.FC<Props> = ({ info }) => (
   <Card>
+    <Disclaimer data-testid='github-disclaimer'>Infomation pulled in dynamically from Github</Disclaimer>
     <Name data-testid='github-name'>{info.name}</Name>
     <Username>
       <a href={info.htmlUrl} target='blank' data-testid='github-link'>
@@ -47,13 +48,14 @@ const Card = styled(C).attrs({ as: 'section' })`
   grid-area: githubInfo;
 
   display: grid;
-  grid-template-columns: max-content 1fr max-content;
-  grid-template-rows: repeat(4, max-content);
+  grid-template-columns: max-content max-content;
+  grid-template-rows: repeat(3, max-content) 1fr max-content;
   grid-template-areas:
-  'name . username'
-  'pic pic pic'
-  'hireable hireable hireable'
-  'bio bio bio';
+  'name username'
+  'pic pic'
+  'hireable hireable'
+  'bio bio'
+  'disclaimer disclaimer';
   grid-gap: ${spacing.sm};
   align-items: center;
 `;
@@ -65,8 +67,9 @@ grid-area: name;
 `;
 
 const Username = styled.small`
-grid-area: username;
+  grid-area: username;
 
+  justify-self: flex-end;
   font-size: 0.9rem;
 
   > a {
@@ -97,5 +100,11 @@ const HireableIcon = styled.i<{ hireable: boolean; }>`
 const ProfilePic = styled.img`
   grid-area: pic;
 
-  border-radius: ${roundedInner}
+  border-radius: ${roundedInner};
+`;
+
+const Disclaimer = styled.small`
+  grid-area: disclaimer;
+
+  justify-self: flex-end;
 `;

@@ -26,13 +26,15 @@ describe('<Display /> tests', () => {
     const hireable = getByTestId('github-hireable');
     const hireableIcon = getByTestId('github-hireable-icon');
     const picture = getByTestId('github-picture');
+    const disclaimer = getByTestId('github-disclaimer');
 
     expect(name.textContent).toBe(testValues.name);
     expect(link.getAttribute('href')).toBe(testValues.htmlUrl);
     expect(bio.textContent).toBe(testValues.bio);
     expect(hireable.textContent).toBe(' I am currently looking for work!');
-    expect(hireableIcon.classList[1]).toBe('fa-check-circle');
+    expect(hireableIcon.classList[hireableIcon.classList.length - 1]).toBe('fa-check-circle');
     expect(picture.getAttribute('src')).toBe(testValues.avatarUrl);
     expect(picture.getAttribute('alt')).toBe(testValues.name);
+    expect(disclaimer.textContent).toBe('Infomation pulled in dynamically from Github')
   });
 });
