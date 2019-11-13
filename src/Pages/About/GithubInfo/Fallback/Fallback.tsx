@@ -23,7 +23,6 @@ const Card = styled(C).attrs({ as: 'section' })`
   justify-content: center;
   align-items: center;
   min-height: 511px;
-  ${transition({})}
 `;
 
 const GithubIcon = styled.i`

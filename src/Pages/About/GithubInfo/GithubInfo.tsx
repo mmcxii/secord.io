@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
-import { useGithubInfo } from "Hooks";
-import Display from "./Display";
-import Fallback from "./Fallback";
+import { useGithubInfo } from 'Hooks';
+import Display from './Display';
+import Fallback from './Fallback';
 
 interface Props {}
 

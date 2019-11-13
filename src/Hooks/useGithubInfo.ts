@@ -16,7 +16,7 @@ export const useGithubInfo = (): IGithubInfo | null => {
   useEffect(() => {
     try {
       fetch('https://api.github.com/users/mmcxii', {
-        method: 'GET',
+        method: 'GET'
       })
         .then(res => res.json())
         .then(data => {
@@ -27,7 +27,7 @@ export const useGithubInfo = (): IGithubInfo | null => {
             htmlUrl: data.html_url,
             location: data.location,
             login: data.login,
-            name: data.name,
+            name: data.name
           };
 
           setData(keep);

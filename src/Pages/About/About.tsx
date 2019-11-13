@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 import GithubInfo from './GithubInfo';
 import Bio from './Bio';
-import { Card } from 'Elements';
 import { spacing } from 'Utilities';
 
 interface Props {}
