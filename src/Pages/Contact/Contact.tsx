@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { Card as C } from 'Elements';
-import SocialMedias from './SocialMedias';
+import ContactLinks from './ContactLinks';
 
 interface Props {}
 
@@ -10,7 +10,7 @@ const Contact: React.FC<Props> = () => (
   <section>
     <h2>Contact Me</h2>
     <Card>
-      <SocialMedias />
+      <ContactLinks />
     </Card>
   </section>
 );
