@@ -21,7 +21,7 @@ interface Props {
 
 const Display: React.FC<Props> = ({ info }) => (
   <Card>
-    <Disclaimer data-testid='github-disclaimer'>Infomation pulled in dynamically from Github</Disclaimer>
+    <Disclaimer data-testid='github-disclaimer'>Source: Github</Disclaimer>
     <Name data-testid='github-name'>{info.name}</Name>
     <Username>
       <a href={info.htmlUrl} target='blank' data-testid='github-link'>
@@ -35,9 +35,8 @@ const Display: React.FC<Props> = ({ info }) => (
         className={`fas ${info.hireable ? 'fa-check-circle' : 'fa-times-circle'}`}
         hireable={info.hireable}
         data-testid='github-hireable-icon'
-      />{' '}
-      I am currently
-      {!info.hireable && 'not'} looking for work{info.hireable ? '!' : '.'}
+      />
+      I am currently {!info.hireable && 'not'} looking for work{info.hireable ? '!' : '.'}
     </Hireable>
     <ProfilePic src={info.avatarUrl} alt={info.name} data-testid='github-picture' />
   </Card>
@@ -56,7 +55,7 @@ const Card = styled(C).attrs({ as: 'section' })`
     'name username'
     'pic pic'
     'hireable hireable'
-    'bio .'
+    'bio bio'
     'disclaimer disclaimer';
   grid-gap: ${spacing.sm};
   align-items: center;
@@ -90,6 +89,8 @@ const GithubIcon = styled.i`
 
 const Bio = styled.p`
   grid-area: bio;
+
+  align-self: flex-start;
 `;
 
 const Hireable = styled.p`
@@ -98,6 +99,7 @@ const Hireable = styled.p`
 
 const HireableIcon = styled.i<{ hireable: boolean }>`
   color: ${props => (props.hireable ? green : orange)};
+  margin-right: ${spacing.sm};
 `;
 
 const ProfilePic = styled.img`

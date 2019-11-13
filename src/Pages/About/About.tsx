@@ -29,7 +29,7 @@ const Wrapper = styled.section`
 
   @media screen and (min-width: 992px) {
     grid-template-rows: max-content 1fr;
-    grid-template-columns: max-content 1fr;
+    grid-template-columns: 1fr 2fr;
     grid-template-areas:
       'title title'
       'githubInfo bio';

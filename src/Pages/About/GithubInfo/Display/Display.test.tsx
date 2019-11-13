@@ -13,7 +13,7 @@ describe('<Display /> tests', () => {
       htmlUrl: 'https://github.com/mmcxii',
       location: 'Redmond, WA',
       login: 'mmcxii',
-      name: 'Nich Secord',
+      name: 'Nich Secord'
     };
 
     //* Act
@@ -35,6 +35,6 @@ describe('<Display /> tests', () => {
     expect(hireableIcon.classList[hireableIcon.classList.length - 1]).toBe('fa-check-circle');
     expect(picture.getAttribute('src')).toBe(testValues.avatarUrl);
     expect(picture.getAttribute('alt')).toBe(testValues.name);
-    expect(disclaimer.textContent).toBe('Infomation pulled in dynamically from Github');
+    expect(disclaimer.textContent).toBe('Source: Github');
   });
 });
