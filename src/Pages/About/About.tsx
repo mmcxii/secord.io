@@ -1,16 +1,40 @@
 import React from 'react';
+import styled from 'styled-components';
+
+import GithubInfo from './GithubInfo';
+import Bio from './Bio';
+import { spacing } from 'Utilities';
 
 interface Props {}
 
 const About: React.FC<Props> = () => (
-  <section>
-    <h2>About Me</h2>
-    <p>
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis modi, dolor numquam totam dolore
-      consequatur tempore, illo velit eveniet, laborum et earum ea maiores nulla omnis repellat perspiciatis!
-      Reiciendis, sint?
-    </p>
-  </section>
+  <Wrapper>
+    <Title>About Me</Title>
+    <GithubInfo />
+    <Bio />
+  </Wrapper>
 );
 
 export default About;
+
+const Wrapper = styled.section`
+  display: grid;
+  grid-template-rows: repeat(2, max-content) 1fr;
+  grid-template-areas:
+    'title'
+    'githubInfo'
+    'bio';
+  grid-gap: ${spacing.md};
+
+  @media screen and (min-width: 992px) {
+    grid-template-rows: max-content 1fr;
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas:
+      'title title'
+      'githubInfo bio';
+  }
+`;
+
+const Title = styled.h2`
+  grid-area: title;
+`;
