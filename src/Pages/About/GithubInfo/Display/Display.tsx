@@ -59,7 +59,7 @@ const Card = styled(C).attrs({ as: 'section' })`
     'disclaimer disclaimer';
   grid-gap: ${spacing.sm};
   align-items: center;
-  max-width: calc(400px + (${spacing.md} * 2) + ${spacing.sm});
+  /* max-width: calc(400px + (${spacing.md} * 2) + ${spacing.sm}); */
 `;
 
 const Name = styled.p`

@@ -38,6 +38,18 @@ const Bio: React.FC<Props> = () => (
       Snoqualmie Pass. Some of my fondest memories growing up are of my family and I on ski trips together in Canada,
       Colorado, Oregon, and Idaho.
     </Paragraph>
+
+    <SectionBreak />
+
+    <SectionHeading>Why Web Dev?</SectionHeading>
+    <Paragraph>
+      I have chosen to take on a career in Web Development because, quite simply, I love what I do. Being able to take
+      on challenges that require both logical and creative thinking means I am never bored, and I love seeing the
+      immediate tangible products of my actions. I relish in opportunities to learn, and one of my favorite parts of
+      this industry is that it is constantly refining and improving upon itself, developing newer and better ways of
+      solving the problems we face. I hope one day that I can be a contributor to the bleeding edge of open source
+      technology.
+    </Paragraph>
   </Card>
 );
 
@@ -47,7 +59,7 @@ const Card = styled(C).attrs({ as: 'section' })`
   grid-area: bio;
 
   /* Calc Value Determined by image width, <Card /> padding, and grid-gap of <GithubInfo /> */
-  max-width: calc(400px + (${spacing.md} * 2) + ${spacing.sm});
+  /* max-width: calc(400px + (${spacing.md} * 2) + ${spacing.sm}); */
   justify-self: center;
 
   @media screen and (min-width: 992px) {
