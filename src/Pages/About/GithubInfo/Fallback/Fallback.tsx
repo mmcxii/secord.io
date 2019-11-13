@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { bgBlue, transition, spacing } from 'Utilities';
+import { bgBlue, spacing } from 'Utilities';
 import { Card as C } from 'Elements';
 
 interface Props {}

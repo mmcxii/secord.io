@@ -2,21 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
+import { GithubInfoProps } from 'Store';
 import { green, orange, roundedInner, spacing, transition, blue } from 'Utilities';
 import { Card as C } from 'Elements';
 
-interface IGithubInfo {
-  avatarUrl: string;
-  bio: string;
-  hireable: boolean;
-  htmlUrl: string;
-  location: string;
-  login: string;
-  name: string;
-}
-
 interface Props {
-  info: IGithubInfo;
+  info: GithubInfoProps;
 }
 
 const Display: React.FC<Props> = ({ info }) => (
@@ -36,7 +27,7 @@ const Display: React.FC<Props> = ({ info }) => (
         hireable={info.hireable}
         data-testid='github-hireable-icon'
       />
-      I am currently {!info.hireable && 'not'} looking for work{info.hireable ? '!' : '.'}
+      I am currently{!info.hireable && ' not'} looking for work{info.hireable ? '!' : '.'}
     </Hireable>
     <ProfilePic src={info.avatarUrl} alt={info.name} data-testid='github-picture' />
   </Card>

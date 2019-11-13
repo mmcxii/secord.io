@@ -1,17 +1,9 @@
 import { useState, useEffect } from 'react';
 
-interface IGithubInfo {
-  avatarUrl: string;
-  bio: string;
-  hireable: boolean;
-  htmlUrl: string;
-  location: string;
-  login: string;
-  name: string;
-}
+import { GithubInfoProps } from 'Store';
 
-export const useGithubInfo = (): IGithubInfo | null => {
-  const [data, setData] = useState<IGithubInfo | null>(null);
+export const useGithubInfo = (): GithubInfoProps | null => {
+  const [data, setData] = useState<GithubInfoProps | null>(null);
 
   useEffect(() => {
     try {
@@ -20,7 +12,7 @@ export const useGithubInfo = (): IGithubInfo | null => {
       })
         .then(res => res.json())
         .then(data => {
-          const keep: IGithubInfo = {
+          const keep: GithubInfoProps = {
             avatarUrl: data.avatar_url,
             bio: data.bio,
             hireable: data.hireable,

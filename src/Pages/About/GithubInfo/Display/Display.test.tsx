@@ -31,7 +31,7 @@ describe('<Display /> tests', () => {
     expect(name.textContent).toBe(testValues.name);
     expect(link.getAttribute('href')).toBe(testValues.htmlUrl);
     expect(bio.textContent).toBe(testValues.bio);
-    expect(hireable.textContent).toBe(' I am currently looking for work!');
+    expect(hireable.textContent).toBe('I am currently looking for work!');
     expect(hireableIcon.classList[hireableIcon.classList.length - 1]).toBe('fa-check-circle');
     expect(picture.getAttribute('src')).toBe(testValues.avatarUrl);
     expect(picture.getAttribute('alt')).toBe(testValues.name);
