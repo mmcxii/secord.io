@@ -1,16 +1,20 @@
 import React from 'react';
+import styled from 'styled-components';
+
+import { Card as C } from 'Elements';
+import SocialMedias from './SocialMedias';
 
 interface Props {}
 
 const Contact: React.FC<Props> = () => (
   <section>
     <h2>Contact Me</h2>
-    <p>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id maxime debitis totam iure exercitationem?
-      Molestiae, id omnis, nihil, tempore quidem veniam eaque ipsam quis odio dolorem in praesentium aliquid
-      incidunt?
-    </p>
+    <Card>
+      <SocialMedias />
+    </Card>
   </section>
 );
 
 export default Contact;
+
+const Card = styled(C).attrs({ as: 'section' })``;
