@@ -35,6 +35,6 @@ describe('<Display /> tests', () => {
     expect(hireableIcon.classList[hireableIcon.classList.length - 1]).toBe('fa-check-circle');
     expect(picture.getAttribute('src')).toBe(testValues.avatarUrl);
     expect(picture.getAttribute('alt')).toBe(testValues.name);
-    expect(disclaimer.textContent).toBe('Infomation pulled in dynamically from Github')
+    expect(disclaimer.textContent).toBe('Infomation pulled in dynamically from Github');
   });
 });

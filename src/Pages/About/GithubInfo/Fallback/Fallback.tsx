@@ -1,7 +1,7 @@
 import React from 'react';
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-import {Card as C} from 'Elements'
+import {Card as C} from 'Elements';
 
 interface Props {}
 

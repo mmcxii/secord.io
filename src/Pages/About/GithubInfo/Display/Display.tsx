@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 import { green, orange, roundedInner, spacing, transition, blue } from 'Utilities';
 import { Card as C } from 'Elements';
@@ -47,21 +48,23 @@ export default Display;
 const Card = styled(C).attrs({ as: 'section' })`
   grid-area: githubInfo;
 
+  justify-self: center;
   display: grid;
-  grid-template-columns: max-content max-content;
+  grid-template-columns: 1fr max-content;
   grid-template-rows: repeat(3, max-content) 1fr max-content;
   grid-template-areas:
-  'name username'
-  'pic pic'
-  'hireable hireable'
-  'bio bio'
-  'disclaimer disclaimer';
+    'name username'
+    'pic pic'
+    'hireable hireable'
+    'bio .'
+    'disclaimer disclaimer';
   grid-gap: ${spacing.sm};
   align-items: center;
+  max-width: calc(400px + (${spacing.md} * 2) + ${spacing.sm});
 `;
 
 const Name = styled.p`
-grid-area: name;
+  grid-area: name;
 
   font-size: 1.3rem;
 `;
@@ -74,7 +77,7 @@ const Username = styled.small`
 
   > a {
     ${transition({ prop: 'color' })};
-    
+
     &:hover {
       color: ${blue};
     }
@@ -93,18 +96,34 @@ const Hireable = styled.p`
   grid-area: hireable;
 `;
 
-const HireableIcon = styled.i<{ hireable: boolean; }>`
-  color: ${props => props.hireable ? green : orange};
+const HireableIcon = styled.i<{ hireable: boolean }>`
+  color: ${props => (props.hireable ? green : orange)};
 `;
 
 const ProfilePic = styled.img`
   grid-area: pic;
 
   border-radius: ${roundedInner};
+  justify-self: center;
+  width: 100%;
+  max-width: 400px;
 `;
 
 const Disclaimer = styled.small`
   grid-area: disclaimer;
 
   justify-self: flex-end;
+  font-size: 0.7rem;
 `;
+
+Display.propTypes = {
+  info: PropTypes.shape({
+    avatarUrl: PropTypes.string.isRequired,
+    bio: PropTypes.string.isRequired,
+    hireable: PropTypes.bool.isRequired,
+    htmlUrl: PropTypes.string.isRequired,
+    location: PropTypes.string.isRequired,
+    login: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired
+  }).isRequired
+};
