@@ -2,24 +2,19 @@ import React from 'react';
 import styled from 'styled-components';
 
 import GithubInfo from './GithubInfo';
+import Bio from './Bio';
 import { Card } from 'Elements';
 import { spacing } from 'Utilities';
 
 interface Props {}
 
-const About: React.FC<Props> = () => {
-  return (
-    <Wrapper>
-      <Title>About Me</Title>
-      <GithubInfo />
-      <Bio>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis modi, dolor numquam totam dolore
-        consequatur tempore, illo velit eveniet, laborum et earum ea maiores nulla omnis repellat perspiciatis!
-        Reiciendis, sint?
-      </Bio>
-    </Wrapper>
-  );
-};
+const About: React.FC<Props> = () => (
+  <Wrapper>
+    <Title>About Me</Title>
+    <GithubInfo />
+    <Bio />
+  </Wrapper>
+);
 
 export default About;
 
@@ -43,14 +38,4 @@ const Wrapper = styled.section`
 
 const Title = styled.h2`
   grid-area: title;
-`;
-
-const Bio = styled(Card)`
-  grid-area: bio;
-  max-width: calc(400px + (${spacing.md} * 2) + ${spacing.sm});
-  justify-self: center;
-
-  @media screen and (min-width: 992px) {
-    max-width: initial;
-  }
 `;

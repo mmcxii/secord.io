@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import {Card as C} from 'Elements';
+import { Card as C } from 'Elements';
 
 interface Props {}
 
@@ -12,6 +12,6 @@ export default Fallback;
 const Card = styled(C).attrs({ as: 'section' })`
   grid-area: githubInfo;
 
-  height: 576px;
-  width: 492px;
+  height: 599px;
+  width: 440px;
 `;
