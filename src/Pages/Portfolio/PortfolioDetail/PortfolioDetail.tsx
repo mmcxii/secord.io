@@ -3,7 +3,7 @@ import { useParams, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { portfolioContext, PortfolioItemProps } from '../PortfolioContext';
-import { spacing, roundedInner, blue, transition } from 'Utilities';
+import { spacing, roundedInner, blue, transition, elevation } from 'Utilities';
 import { Button, Card } from 'Elements';
 
 interface Props {}
@@ -51,11 +51,7 @@ const PortfolioDetail: React.FC<Props> = () => {
             ))}
           </Description>
 
-          <Screenshot
-            src={project.imgSrc}
-            data-testid='project-screenshot'
-            alt={`A screenshot of ${project.name}`}
-          />
+          <Screenshot src={project.imgSrc} data-testid='project-screenshot' alt={`A screenshot of ${project.name}`} />
         </ProjectInfo>
       )}
     </Wrapper>
@@ -134,4 +130,5 @@ const Screenshot = styled.img`
   grid-area: screenshot;
   width: 100%;
   border-radius: ${roundedInner};
+  ${elevation[4]}
 `;
