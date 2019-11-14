@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import Overdrive from 'react-overdrive';
 
 import { PortfolioItemProps } from '../../../PortfolioContext';
 import { spacing, roundedInner, transition, blue, elevation } from 'Utilities';
@@ -28,11 +29,13 @@ const PortfolioItem: React.FC<Props> = ({ project, testID }) => {
       <Overview>{project.overview}</Overview>
 
       <ScreenshotWrapper to={`/portfolio/${project.slug}`} data-testid={`portfolio-item--${testID}__detail-link`}>
-        <Screenshot
-          src={project.imgSrc}
-          data-testid={`portfolio-item--${testID}__screenshot`}
-          alt={`a screenshot of ${project.name}`}
-        />
+        <Overdrive id={`${project.slug}-ss`}>
+          <Screenshot
+            src={project.imgSrc}
+            data-testid={`portfolio-item--${testID}__screenshot`}
+            alt={`a screenshot of ${project.name}`}
+          />
+        </Overdrive>
       </ScreenshotWrapper>
     </Card>
   );
