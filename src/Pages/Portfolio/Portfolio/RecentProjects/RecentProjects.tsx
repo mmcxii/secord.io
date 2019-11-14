@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { useRecentProjects } from './useRecentProjects';
 import { spacing } from 'Utilities';
 import ProjectItem from './ProjectItem';
+import Fallback from './Fallback';
 
 interface Props {}
 
@@ -31,12 +32,17 @@ const RecentProjects: React.FC<Props> = () => {
     <Wrapper>
       <h2>Recent Projects</h2>
       <p>
-        In my spare time I love working on new side projects and refining existing ones! Here is what I've
-        been up to lately.
+        In my spare time I love working on new side projects and refining existing ones! Here is what I've been up to
+        lately.
       </p>
       <ProjectsWrapper>
         {dataIsLoading ? (
-          <p>loading...</p>
+          <>
+            <Fallback />
+            <Fallback />
+            <Fallback />
+            <Fallback />
+          </>
         ) : (
           portfolioItems.map((item, index) => <ProjectItem testID={index} key={item.id} project={item} />)
         )}
