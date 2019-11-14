@@ -1,7 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
-import Overdrive from 'react-overdrive';
 
 import { portfolioContext, PortfolioItemProps } from '../PortfolioContext';
 import { spacing, roundedInner, blue, transition, elevation } from 'Utilities';
@@ -52,9 +51,7 @@ const PortfolioDetail: React.FC<Props> = () => {
             ))}
           </Description>
 
-          <ScreenshotWrapper id={`${project.slug}-ss`}>
-            <Screenshot src={project.imgSrc} data-testid='project-screenshot' alt={`A screenshot of ${project.name}`} />
-          </ScreenshotWrapper>
+          <Screenshot src={project.imgSrc} data-testid='project-screenshot' alt={`A screenshot of ${project.name}`} />
         </ProjectInfo>
       )}
     </Wrapper>
@@ -129,11 +126,8 @@ const Paragraph = styled.p`
   margin: ${spacing.md} 0;
 `;
 
-const ScreenshotWrapper = styled(Overdrive)`
-  grid-area: screenshot;
-`;
-
 const Screenshot = styled.img`
+  grid-area: screenshot;
   width: 100%;
   border-radius: ${roundedInner};
   ${elevation[4]}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route, useParams } from 'react-router-dom';
+import { Switch, Route, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { useJumpToTop } from 'Hooks';
@@ -12,8 +12,8 @@ interface Props {}
 
 const Router: React.FC<Props> = () => {
   // Wenever the page changes, jump to the top of the document
-  const params = useParams();
-  useJumpToTop(params);
+  const history = useHistory();
+  useJumpToTop(history.location.pathname);
 
   return (
     <Page>
