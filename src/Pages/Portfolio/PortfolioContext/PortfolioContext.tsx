@@ -1,7 +1,6 @@
 import React, { createContext } from 'react';
 
 import deckedOutSS from './screenshots/decked-out.png';
-import whichThisIsThisSS from './screenshots/which-this-is-this.png';
 import letsTacoBoutItSS from './screenshots/lets-taco-bout-it.png';
 import roshamboTheGatheringSS from './screenshots/roshambo-the-gathering.png';
 import manhattanProjectSS from './screenshots/manhattan-project.png';
@@ -76,20 +75,21 @@ const state: PortfolioItemProps[] = [
   }
 ];
 
-const archive: PortfolioItemProps[] = [
-  {
-    name: 'which this is this?',
-    slug: 'which-this-is-this',
-    github: 'https://github.com/mmcxii/this-context-quiz',
-    site: 'https://which-this-is-this.netlify.com/',
-    imgSrc: whichThisIsThisSS,
-    techStackIcons: ['fab fa-react', 'fab fa-sass'],
-    desc: [
-      'This is the second app I made with React. For this project I wanted to practice working with sending data up and down the prop chain, as well as managing a more complex state. I believe I could improve this project by implementing Redux for state managment, and by storing the questions in a database when I add more to the quiz.'
-    ],
-    overview: 'A quiz app for practicing different `this` contexts in JavaScript.'
-  }
-];
+//* Archive of former portfolio items
+// [
+//   {
+//     name: 'which this is this?',
+//     slug: 'which-this-is-this',
+//     github: 'https://github.com/mmcxii/this-context-quiz',
+//     site: 'https://which-this-is-this.netlify.com/',
+//     imgSrc: whichThisIsThisSS,
+//     techStackIcons: ['fab fa-react', 'fab fa-sass'],
+//     desc: [
+//       'This is the second app I made with React. For this project I wanted to practice working with sending data up and down the prop chain, as well as managing a more complex state. I believe I could improve this project by implementing Redux for state managment, and by storing the questions in a database when I add more to the quiz.'
+//     ],
+//     overview: 'A quiz app for practicing different `this` contexts in JavaScript.'
+//   }
+// ];
 
 export const portfolioContext = createContext<PortfolioItemProps[]>(state);
 
