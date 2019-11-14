@@ -1,7 +1,9 @@
 import React from 'react';
+import styled from 'styled-components';
 
 //@ts-ignore
 import Resume from 'Assets/resume/SECORD_resume.pdf';
+import { spacing, transition, blue } from 'Utilities';
 
 interface Props {}
 
@@ -40,15 +42,37 @@ const ConctactLinks: React.FC<Props> = () => {
   ];
 
   return (
-    <section>
+    <Wrapper>
       {links.map(item => (
-        <a href={item.href} target='_blank' data-testid={`link-${item.testId}`} key={item.testId}>
-          <i className={item.icon} />
+        <Link href={item.href} target='_blank' data-testid={`link-${item.testId}`} key={item.testId}>
+          <Icon className={item.icon} />
           {item.text}
-        </a>
+        </Link>
       ))}
-    </section>
+    </Wrapper>
   );
 };
 
 export default ConctactLinks;
+
+const Wrapper = styled.section`
+  display: flex;
+  flex-direction: column;
+`;
+
+const Link = styled.a`
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: ${spacing.sm};
+  grid-template-columns: 18px 1fr;
+  margin: ${spacing.xs} 0;
+  ${transition({ prop: 'color' })};
+
+  &:hover {
+    color: ${blue};
+  }
+`;
+
+const Icon = styled.i`
+  justify-self: center;
+`;
