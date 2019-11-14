@@ -10,9 +10,9 @@ interface Props {}
 const Footer: React.FC<Props> = () => (
   <Wrapper data-testid='footer-wrapper'>
     <Byline data-testid='byline'>
-      Nich Secord &copy;2019
+      &copy;2019-present Nich Secord.
       <br />
-      all rights reserved.
+      Icons copyright Font Awesome.
     </Byline>
 
     <SocialMedia />

@@ -2,9 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import Overdrive from 'react-overdrive';
 
 import { PortfolioItemProps } from '../../../PortfolioContext';
-import { spacing, roundedInner, transition, blue } from 'Utilities';
+import { spacing, roundedInner, transition, blue, elevation } from 'Utilities';
 import { Card as C } from 'Elements';
 
 interface Props {
@@ -27,15 +28,14 @@ const PortfolioItem: React.FC<Props> = ({ project, testID }) => {
 
       <Overview>{project.overview}</Overview>
 
-      <ScreenshotWrapper
-        to={`/portfolio/${project.slug}`}
-        data-testid={`portfolio-item--${testID}__detail-link`}
-      >
-        <Screenshot
-          src={project.imgSrc}
-          data-testid={`portfolio-item--${testID}__screenshot`}
-          alt={`a screenshot of ${project.name}`}
-        />
+      <ScreenshotWrapper to={`/portfolio/${project.slug}`} data-testid={`portfolio-item--${testID}__detail-link`}>
+        <Overdrive id={`${project.slug}-ss`}>
+          <Screenshot
+            src={project.imgSrc}
+            data-testid={`portfolio-item--${testID}__screenshot`}
+            alt={`a screenshot of ${project.name}`}
+          />
+        </Overdrive>
       </ScreenshotWrapper>
     </Card>
   );
@@ -85,6 +85,7 @@ const ScreenshotWrapper = styled(Link)`
 const Screenshot = styled.img`
   width: 100%;
   border-radius: ${roundedInner};
+  ${elevation[4]}
 
   @media screen and (min-width: 992px) {
     max-height: 500px;
@@ -102,6 +103,6 @@ PortfolioItem.propTypes = {
     imgSrc: PropTypes.string.isRequired,
     techStackIcons: PropTypes.array.isRequired,
     desc: PropTypes.array.isRequired,
-    overview: PropTypes.string.isRequired,
-  }).isRequired,
+    overview: PropTypes.string.isRequired
+  }).isRequired
 };

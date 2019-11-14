@@ -1,13 +1,9 @@
 import React, { createContext } from 'react';
 
-//@ts-ignore
 import deckedOutSS from './screenshots/decked-out.png';
-//@ts-ignore
-import whichThisIsThisSS from './screenshots/which-this-is-this.png';
-//@ts-ignore
 import letsTacoBoutItSS from './screenshots/lets-taco-bout-it.png';
-//@ts-ignore
 import roshamboTheGatheringSS from './screenshots/roshambo-the-gathering.png';
+import manhattanProjectSS from './screenshots/manhattan-project.png';
 
 export interface PortfolioItemProps {
   name: string;
@@ -22,6 +18,20 @@ export interface PortfolioItemProps {
 
 const state: PortfolioItemProps[] = [
   {
+    name: 'the manhattan project',
+    slug: 'manhattan-project',
+    github: 'https://github.com/mmcxii/manhattan-project',
+    site: 'https://manhattan-project-uwbc.herokuapp.com/',
+    imgSrc: manhattanProjectSS,
+    techStackIcons: ['fab fa-react', 'fab fa-node-js', 'fab fa-aws', 'fab fa-git-alt'],
+    desc: [
+      'The Manhattan Project was the final project of my University of Washington Full-Stack Bootcamp that I completed in November 2019. It is a social network built around the ability to search for your favorite beers and cocktails. In addition to the search functionality it features user profiles with the ability to follow other users, rate and favorite products in the database, and post and vote on comments on those products. I implemented both a dark and a light theme for the site as well as created a component library that is used across the site.',
+      'I worked on the majority of the front end of this site. I created most of the components that are used on the pages using the Styled-Components CSS-in-JS library, I was responsible for setting up the client-side router using React-Router-DOM, and I created the Profile page, the Edit User page, the Product Detail page, and the Landing page. I also was responsible for handling persistence between site visits, using Local Storage and React’s Context API for App level state.',
+      'We built the site with React and used TypeScript on both the front and back ends. I pushed for the use of TypeScript on this project because of the great developer experience it provides in addition to the static type checking. I felt much more confident over the month we spent creating this site because of the insight that TypeScript provides into the structure of the application. We caught almost all of our bugs in development, and only a minor few were able to sneak past us into production.'
+    ],
+    overview: 'A social network centered around beer and cocktail recipes.'
+  },
+  {
     name: 'decked out',
     slug: 'decked-out',
     github: 'https://github.com/mmcxii/decked-out',
@@ -35,18 +45,6 @@ const state: PortfolioItemProps[] = [
     ],
     overview:
       'A MERN stack companion app for Magic: the Gathering. Featuring a life-tracker, deck builder, and Oracle search for referencing card information.'
-  },
-  {
-    name: 'which this is this?',
-    slug: 'which-this-is-this',
-    github: 'https://github.com/mmcxii/this-context-quiz',
-    site: 'https://which-this-is-this.netlify.com/',
-    imgSrc: whichThisIsThisSS,
-    techStackIcons: ['fab fa-react', 'fab fa-sass'],
-    desc: [
-      'This is the second app I made with React. For this project I wanted to practice working with sending data up and down the prop chain, as well as managing a more complex state. I believe I could improve this project by implementing Redux for state managment, and by storing the questions in a database when I add more to the quiz.'
-    ],
-    overview: 'A quiz app for practicing different `this` contexts in JavaScript.'
   },
   {
     name: "let's taco 'bout it",
@@ -76,6 +74,22 @@ const state: PortfolioItemProps[] = [
     overview: 'A five option Rock-Paper-Scissors game themed around Magic: the Gathering for two players.'
   }
 ];
+
+//* Archive of former portfolio items
+// [
+//   {
+//     name: 'which this is this?',
+//     slug: 'which-this-is-this',
+//     github: 'https://github.com/mmcxii/this-context-quiz',
+//     site: 'https://which-this-is-this.netlify.com/',
+//     imgSrc: whichThisIsThisSS,
+//     techStackIcons: ['fab fa-react', 'fab fa-sass'],
+//     desc: [
+//       'This is the second app I made with React. For this project I wanted to practice working with sending data up and down the prop chain, as well as managing a more complex state. I believe I could improve this project by implementing Redux for state managment, and by storing the questions in a database when I add more to the quiz.'
+//     ],
+//     overview: 'A quiz app for practicing different `this` contexts in JavaScript.'
+//   }
+// ];
 
 export const portfolioContext = createContext<PortfolioItemProps[]>(state);
 
