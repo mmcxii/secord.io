@@ -1,10 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+
+//@ts-ignore
+import Resume from 'Assets/resume/SECORD_resume.pdf';
 
 interface Props {}
 
 const ConctactLinks: React.FC<Props> = () => {
   const links: { testId: string; href: string; icon: string; text: string }[] = [
+    {
+      testId: 'resume',
+      href: Resume,
+      icon: 'fas fa-file-user',
+      text: 'Resume'
+    },
     {
       testId: 'email',
       href: 'mailto:nich@secord.io',
@@ -34,15 +42,11 @@ const ConctactLinks: React.FC<Props> = () => {
   return (
     <section>
       {links.map(item => (
-        <a href={item.href} data-testid={`link-${item.testId}`} key={item.testId}>
+        <a href={item.href} target='_blank' data-testid={`link-${item.testId}`} key={item.testId}>
           <i className={item.icon} />
           {item.text}
         </a>
       ))}
-      <Link to='/resume' data-testid='link-resume'>
-        <i className='fas fa-file-user' />
-        Resume
-      </Link>
     </section>
   );
 };

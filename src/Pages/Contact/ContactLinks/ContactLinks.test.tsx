@@ -24,6 +24,6 @@ describe('<ContactLinks /> tests', () => {
     expect(githubLink.getAttribute('href')).toBe('https://www.github.com/mmcxii');
     expect(linkedinLink.getAttribute('href')).toBe('https://www.linkedin.com/in/nichsecord');
     expect(twitterLink.getAttribute('href')).toBe('https://www.twitter.com/nichsecord');
-    expect(resumeLink.getAttribute('href')).toBe('/resume');
+    expect(resumeLink.getAttribute('href')).toBe('SECORD_resume.pdf');
   });
 });
