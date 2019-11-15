@@ -17,7 +17,7 @@ const Bio: React.FC<Props> = () => (
     <Paragraph>
       I have a diverse range of skills at my disposal; ranging from the basics such as HTML, CSS (and Sass), and
       JavaScript, to more complicated and modern technologies like TypeScript, React (especially with Hooks),
-      Styled-Components, and testing with Jest, Testing-Library, and Cypress. I am currently learned Redux as well for
+      Styled-Components, and testing with Jest, Testing-Library, and Cypress. I am currently learning Redux as well for
       state management.
     </Paragraph>
     <Paragraph>I also have backend experience with NodeJS, Express, MongoDB, and MySQL.</Paragraph>
@@ -32,7 +32,7 @@ const Bio: React.FC<Props> = () => (
     </Paragraph>
     <Paragraph>
       I would say that my favorite pastime is the fine sport of skiing. I have been riding the slopes since I was seven
-      years old, in fact I got my first job working as a Ski Instructor when I was thirteen at Snoqualmie Pass. Some of
+      years old. In fact I got my first job working as a Ski Instructor when I was thirteen at Snoqualmie Pass. Some of
       my fondest memories growing up are of my family and I on ski trips together in Canada, Colorado, Oregon, and
       Idaho.
     </Paragraph>
