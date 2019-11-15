@@ -8,8 +8,8 @@ interface Props {}
 const Porfolio: React.FC<Props> = () => {
   return (
     <section>
-      <RecentProjects />
       <MainPortfolioItems />
+      <RecentProjects />
     </section>
   );
 };
