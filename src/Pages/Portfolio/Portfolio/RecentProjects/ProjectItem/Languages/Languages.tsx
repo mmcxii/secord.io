@@ -44,5 +44,5 @@ const Language = styled.span`
 
 Languages.propTypes = {
   langs: PropTypes.object.isRequired,
-  testID: PropTypes.number.isRequired,
+  testID: PropTypes.number.isRequired
 };
