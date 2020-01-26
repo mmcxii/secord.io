@@ -1,8 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
 
-import { spacing, blue } from 'Utilities';
-import { Card as C, ExtLink } from 'Elements';
+import UseCategory from './UseCategory';
 
 interface Props {}
 
@@ -108,69 +106,18 @@ const Uses: React.FC<Props> = () => {
   return (
     <section>
       <h2>Uses</h2>
-      <Card>
-        <h3>Editor & Terminal</h3>
-        <ul>
-          {editorAndTerminal.map(item => (
-            <Item key={item.name}>
-              <Icon className={item.icon} />
-              <ExtLink href={item.link}>{item.name}</ExtLink>{' '}
-              {item.name2 && item.link2 && (
-                <>
-                  {' '}
-                  & <ExtLink href={item.link2}>{item.name2}</ExtLink>{' '}
-                </>
-              )}{' '}
-              - {item.description}
-            </Item>
-          ))}
-        </ul>
-      </Card>
+      <UseCategory name='Editor and Terminal' items={editorAndTerminal} />
 
-      <Card>
-        <h3>Hardware</h3>
-        <ul>
-          {hardware.map(item => (
-            <Item key={item.name}>
-              <Icon className={item.icon} />
-              <ExtLink href={item.link}>{item.name}</ExtLink>{' '}
-              {item.name2 && item.link2 && (
-                <>
-                  {' '}
-                  & <ExtLink href={item.link2}>{item.name2}</ExtLink>{' '}
-                </>
-              )}{' '}
-              - {item.description}
-            </Item>
-          ))}
-        </ul>
-      </Card>
+      <UseCategory name='Hardware' items={hardware} />
 
-      <Card>
-        <h3>Other</h3>
-        <ul>
-          {other.map(item => (
-            <Item key={item.name}>
-              <Icon className={item.icon} />
-              <ExtLink href={item.link}>{item.name}</ExtLink>{' '}
-              {item.name2 && item.link2 && (
-                <>
-                  {' '}
-                  & <ExtLink href={item.link2}>{item.name2}</ExtLink>{' '}
-                </>
-              )}{' '}
-              - {item.description}
-            </Item>
-          ))}
-        </ul>
-      </Card>
+      <UseCategory name='Other' items={other} />
     </section>
   );
 };
 
 export default Uses;
 
-interface UsesObject {
+export interface UsesObject {
   icon: string;
   name: string;
   name2?: string;
@@ -178,17 +125,3 @@ interface UsesObject {
   link2?: string;
   description: string;
 }
-
-const Card = styled(C)`
-  margin: ${spacing.lg} 0;
-`;
-
-const Icon = styled.i`
-  margin-right: ${spacing.sm};
-  color: ${blue};
-`;
-
-const Item = styled.li`
-  margin: ${spacing.sm} 0;
-  line-height: 130%;
-`;
