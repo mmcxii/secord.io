@@ -7,6 +7,7 @@ import { Container } from 'Elements';
 import About from './About';
 import Contact from './Contact';
 import { Portfolio, PortfolioDetail, PortfolioProvider } from './Portfolio';
+import Uses from './Uses';
 
 interface Props {}
 
@@ -24,6 +25,10 @@ const Router: React.FC<Props> = () => {
 
         <Route exact path='/contact'>
           <Contact />
+        </Route>
+
+        <Route exact path='/uses'>
+          <Uses />
         </Route>
 
         <PortfolioProvider>

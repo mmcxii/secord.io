@@ -16,18 +16,23 @@ const Nav: React.FC<Props> = () => {
     {
       page: 'about me',
       link: '/',
-      icon: 'fa-user-circle',
+      icon: 'fa-user-circle'
     },
     {
       page: 'portfolio',
       link: '/portfolio',
-      icon: 'fa-browser',
+      icon: 'fa-browser'
     },
     {
       page: 'contact',
       link: '/contact',
-      icon: 'fa-id-card',
+      icon: 'fa-id-card'
     },
+    {
+      page: 'uses',
+      link: '/uses',
+      icon: 'fa-laptop'
+    }
   ];
 
   return (
