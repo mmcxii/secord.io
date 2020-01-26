@@ -27,6 +27,10 @@ const Router: React.FC<Props> = () => {
           <Contact />
         </Route>
 
+        <Route exact path='/uses'>
+          <Uses />
+        </Route>
+
         <PortfolioProvider>
           <Route exact path='/portfolio'>
             <Portfolio />
@@ -36,10 +40,6 @@ const Router: React.FC<Props> = () => {
             <PortfolioDetail />
           </Route>
         </PortfolioProvider>
-
-        <Route exact path='/uses'>
-          <Uses />
-        </Route>
       </Switch>
     </Page>
   );
