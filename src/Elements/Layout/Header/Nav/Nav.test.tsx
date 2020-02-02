@@ -14,9 +14,7 @@ describe('<Nav /> tests', () => {
     );
 
     const navbar = getByTestId('navbar');
-    const navlist = getByTestId('navlist');
 
     expect(navbar);
-    expect(navlist.children.length).toBe(3);
   });
 });
