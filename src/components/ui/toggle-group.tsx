@@ -18,13 +18,9 @@ export type ToggleGroupProps = React.ComponentProps<
 > &
   VariantProps<typeof toggleVariants>;
 
-export const ToggleGroup: React.FC<ToggleGroupProps> = ({
-  className,
-  variant,
-  size,
-  children,
-  ...props
-}) => {
+export const ToggleGroup: React.FC<ToggleGroupProps> = (props) => {
+  const { className, variant, size, children, ...componentProps } = props;
+
   return (
     <ToggleGroupPrimitive.Root
       data-slot="toggle-group"
@@ -34,7 +30,7 @@ export const ToggleGroup: React.FC<ToggleGroupProps> = ({
         "group/toggle-group flex w-fit items-center rounded-md data-[variant=outline]:shadow-xs",
         className,
       )}
-      {...props}
+      {...componentProps}
     >
       <ToggleGroupContext.Provider value={{ variant, size }}>
         {children}
@@ -48,13 +44,10 @@ export type ToggleGroupItemProps = React.ComponentProps<
 > &
   VariantProps<typeof toggleVariants>;
 
-export const ToggleGroupItem: React.FC<ToggleGroupItemProps> = ({
-  className,
-  children,
-  variant,
-  size,
-  ...props
-}) => {
+export const ToggleGroupItem: React.FC<ToggleGroupItemProps> = (props) => {
+  const { className, children, variant, size, ...componentProps } = props;
+
+  //* State
   const context = React.useContext(ToggleGroupContext);
 
   return (
@@ -70,7 +63,7 @@ export const ToggleGroupItem: React.FC<ToggleGroupItemProps> = ({
         "min-w-0 flex-1 shrink-0 rounded-none shadow-none first:rounded-l-md last:rounded-r-md focus:z-10 focus-visible:z-10 data-[variant=outline]:border-l-0 data-[variant=outline]:first:border-l",
         className,
       )}
-      {...props}
+      {...componentProps}
     >
       {children}
     </ToggleGroupPrimitive.Item>

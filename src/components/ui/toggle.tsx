@@ -30,17 +30,14 @@ export const toggleVariants = cva(
 export type ToggleProps = React.ComponentProps<typeof TogglePrimitive.Root> &
   VariantProps<typeof toggleVariants>;
 
-export const Toggle: React.FC<ToggleProps> = ({
-  className,
-  variant,
-  size,
-  ...props
-}) => {
+export const Toggle: React.FC<ToggleProps> = (props) => {
+  const { className, variant, size, ...componentProps } = props;
+
   return (
     <TogglePrimitive.Root
       data-slot="toggle"
       className={cn(toggleVariants({ variant, size, className }))}
-      {...props}
+      {...componentProps}
     />
   );
 };

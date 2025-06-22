@@ -8,12 +8,14 @@ export type SeparatorProps = React.ComponentProps<
   typeof SeparatorPrimitive.Root
 >;
 
-export const Separator: React.FC<SeparatorProps> = ({
-  className,
-  orientation = "horizontal",
-  decorative = true,
-  ...props
-}) => {
+export const Separator: React.FC<SeparatorProps> = (props) => {
+  const {
+    className,
+    orientation = "horizontal",
+    decorative = true,
+    ...componentProps
+  } = props;
+
   return (
     <SeparatorPrimitive.Root
       data-slot="separator"
@@ -23,7 +25,7 @@ export const Separator: React.FC<SeparatorProps> = ({
         "bg-border shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px",
         className,
       )}
-      {...props}
+      {...componentProps}
     />
   );
 };
